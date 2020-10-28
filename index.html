@@ -67,7 +67,7 @@
                 <p>This is a small POC around the requirements of Moxie intake.</p>
                 <p>...</p>
                 <ul class="social">
-                    <li><button onclick="initESW()"><i class="ion-chatbubbles"></i></button></li>
+                    <li><button onclick="initiateChat()"><i class="ion-chatbubbles"></i></button></li>
                 </ul>
                 <!-- <div class="h-50"></div> <img src="img/Signature.svg" width="230" alt="" /> -->
                 <div class="h-50"></div>
@@ -449,6 +449,20 @@
         document.body.appendChild(s);
     } else {
         initESW('https://service.force.com');
+    }
+
+    function initiateChat(){
+        console.log("initiateChat");
+        if (!window.embedded_svc) {
+            var s = document.createElement('script');
+            s.setAttribute('src', 'https://dellicm--moxiepoc.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+            s.onload = function() {
+                initESW(null);
+            };
+            document.body.appendChild(s);
+        } else {
+            initESW('https://service.force.com');
+        }
     }
 </script>
 </body>
