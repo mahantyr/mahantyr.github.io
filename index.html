@@ -67,7 +67,7 @@
                 <p>This is a small POC around the requirements of Moxie intake.</p>
                 <p>...</p>
                 <ul class="social">
-                    <li><button onclick="initiateChat()"><i class="ion-chatbubbles"></i></button></li>
+                    <li><button id="Your_button_class"><i class="ion-chatbubbles"></i></button></li>
                 </ul>
                 <!-- <div class="h-50"></div> <img src="img/Signature.svg" width="230" alt="" /> -->
                 <div class="h-50"></div>
@@ -367,10 +367,13 @@
         /* #liveAgentClientChat.liveAgentStateWaiting #liveAgentQueuePosition { display: inline; }
         #liveAgentQueuePosition { display: none; } */
 
-</style>
+    </style>
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
+    $("Your_button_class").click(function(){
+        $('.helpButtonEnabled').trigger("click");
+    });
     var initESW = function(gslbBaseURL) {
         var userLocale = '{!$CurrentPage.parameters.language}';
         embedded_svc.settings.displayHelpButton = true; //Or false
@@ -443,80 +446,7 @@
         initESW('https://service.force.com');
     }
 
-    async function initiateChat(){
-        console.log("initiateChat");
-        var initESW = function(gslbBaseURL) {
-            var userLocale = '{!$CurrentPage.parameters.language}';
-            embedded_svc.settings.displayHelpButton = true; //Or false
-            embedded_svc.settings.language = userLocale; //For example, enter 'en' or 'en-US'
     
-            //embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
-            //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
-    
-            //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
-            //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
-    
-            // Settings for Chat
-            //embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
-                // Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
-                // Returns a valid button ID.
-            //};
-            //embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
-            //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
-            //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
-    
-            embedded_svc.settings.prechatBackgroundImgURL = "https://www.rhinodesignltd.com/wp-content/uploads/2017/07/dell-project-banner.jpg";
-            embedded_svc.settings.smallCompanyLogoImgURL = "https://pchouse.com.pk/wp-content/uploads/2019/10/600px-Dell_Logo.png";
-            embedded_svc.settings.chatbotAvatarImgURL = "https://miro.medium.com/max/400/1*Y1klwgS90g788BD8gf3aLw.png";
-            embedded_svc.settings.avatarImgURL = "https://avatars.sched.co/9/6b/8687287/avatar.jpg?f85";
-    
-            embedded_svc.settings.extraPrechatFormDetails = [{
-                "label":"First Name",  
-                "transcriptFields": ["FirstName__c"]
-                },{
-                "label":"Last Name", 
-                "transcriptFields": ["LastName__c"]
-                },{
-                "label":"Email", 
-                "transcriptFields": ["Email__c"]
-                },{
-                "label":"Language", 
-                "transcriptFields": ["Language__c"]
-                }
-            ];
-    
-    
-            embedded_svc.settings.enabledFeatures = ['LiveAgent'];
-            embedded_svc.settings.entryFeature = 'LiveAgent';
-    
-            embedded_svc.init(
-                'https://dellicm--moxiepoc.my.salesforce.com',
-                'https://moxiepoc-dellcommunities.cs14.force.com/chat',
-                gslbBaseURL,
-                '00Dc0000003lKkM',
-                'Chat_Agent_Group',
-                {
-                    baseLiveAgentContentURL: 'https://c.la1-c1cs-ord.salesforceliveagent.com/content',
-                    deploymentId: '572c00000008Ol2',
-                    buttonId: '573c00000008PAR',
-                    baseLiveAgentURL: 'https://d.la1-c1cs-ord.salesforceliveagent.com/chat',
-                    eswLiveAgentDevName: 'Chat_Agent_Group',
-                    isOfflineSupportEnabled: false
-                }
-            );
-        };
-    
-        if (!window.embedded_svc) {
-            var s = document.createElement('script');
-            s.setAttribute('src', 'https://dellicm--moxiepoc.my.salesforce.com/embeddedservice/5.0/esw.min.js');
-            s.onload = function() {
-                initESW(null);
-            };
-            document.body.appendChild(s);
-        } else {
-            initESW('https://service.force.com');
-        }
-    }
 </script>
 </body>
 
