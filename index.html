@@ -67,7 +67,8 @@
                 <p>This is a small POC around the requirements of Moxie intake.</p>
                 <p>...</p>
                 <ul class="social">
-                    <li><button id="Your_button_class"><i class="ion-chatbubbles"></i></button></li>
+                    <!-- <li><button id="button_class"><i class="ion-chatbubbles"></i></button></li> -->
+                    <li><button class="mybuttons" id="button1"><i class="ion-chatbubbles"></i></button></li>
                 </ul>
                 <!-- <div class="h-50"></div> <img src="img/Signature.svg" width="230" alt="" /> -->
                 <div class="h-50"></div>
@@ -135,7 +136,7 @@
     <div class="section" id="projects">
         <div class="container">
             <div class="col-md-12">
-                <h4>03</h4>
+        
                 <h1 class="size-50">Screenshots</h1> 
             </div>
             <!-- main container -->
@@ -345,6 +346,15 @@
     </div>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
+    <script>
+        $(function(){
+            $("#button1").click(function(){
+                console.log('Test Click');
+               $('.helpButtonEnabled').trigger("click");
+               $('.embeddedServiceHelpButton').trigger("click");
+            });
+        });
+    </script>
     <!--  plugins  -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/plugins.js"></script>
@@ -371,9 +381,6 @@
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
-    $("Your_button_class").click(function(){
-        $('.helpButtonEnabled').trigger("click");
-    });
     var initESW = function(gslbBaseURL) {
         var userLocale = '{!$CurrentPage.parameters.language}';
         embedded_svc.settings.displayHelpButton = true; //Or false
