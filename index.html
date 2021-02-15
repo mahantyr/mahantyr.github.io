@@ -61,7 +61,7 @@
 	</div>
 </div> -->
 <div style="position: relative">
-<div style ="position: absolute; cursor: move;" >
+<div id="draggable" style ="position: absolute; cursor: move;" >
       <iframe id="chatFrame" src= "./EmbeddedChild.html"></iframe>
     </div>
 </div>
@@ -367,6 +367,8 @@
                $('.embeddedServiceHelpButton').trigger("click");
             });
         });
+	    
+	$('.draggable').draggable();
     </script>
     <!--  plugins  -->
     <script src="js/bootstrap.min.js"></script>
