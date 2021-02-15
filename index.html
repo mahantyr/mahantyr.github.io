@@ -45,7 +45,15 @@
         </nav>
     </header>
     <!-- ./header -->
-    
+	
+	
+    <div class="btn-chat" id="livechat-compact-container" style="visibility: visible; opacity: 1;">
+	<div class="btn-holder">
+		<a onclick="bootstrapChat()" href="#" class="link">Chat Service</a>
+	</div>
+</div>
+	
+	
     <!-- home -->
     <div class="section" id="home" >
         <div class="container">
@@ -381,9 +389,14 @@
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
+	function bootstrapChat() {
+		embedded_svc.bootstrapEmbeddedService();
+	}
+</script>
+<script type='text/javascript'>
     var initESW = function(gslbBaseURL) {
         var userLocale = '{!$CurrentPage.parameters.language}';
-        embedded_svc.settings.displayHelpButton = true; //Or false
+        embedded_svc.settings.displayHelpButton = false; //Or false
         embedded_svc.settings.language = userLocale; //For example, enter 'en' or 'en-US'
 
         //embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
