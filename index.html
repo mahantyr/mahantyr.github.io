@@ -55,13 +55,14 @@
                     <h1>Moxie<br />Demo</h1> </div>
             </div>
 <!-- 		 -->
-<!-- 	<div class="btn-chat" id="livechat-compact-container" style="visibility: visible; opacity: 1;">
+<div style="position: fixed">
+	<div class="btn-chat" id="livechat-compact-container" style="visibility: visible; opacity: 1;">
 	<div class="btn-holder">
 		<a onclick="bootstrapChat()" href="#" class="link">Chat Service</a>
 	</div>
-</div> -->
-<div style="position: relative">
-<div class="draggable" style ="bottom: 0px; right: 0px;  position: absolute;">
+	</div>
+
+<div class="draggable draggable-handler" style ="bottom: 0px; right: 0px;">
       <iframe id="chatFrame" src= "./EmbeddedChild.html"></iframe>
     </div>
 </div>
@@ -367,10 +368,31 @@
                $('.embeddedServiceHelpButton').trigger("click");
             });
         });
-	$('.draggable').draggable();
+// 	$('.draggable').draggable();
 // 	$(document).ready(function() {
   	
 // 	});
+	    $('.draggable-handler').mousedown(function(e){
+  drag = $(this).closest('.draggable')
+  drag.addClass('dragging')
+  drag.css('left', e.clientX-$(this).width()/2)
+  drag.css('top', e.clientY-$(this).height()/2 - 10)
+  $(this).on('mousemove', function(e){    
+    drag.css('left', e.clientX-$(this).width()/2)
+    drag.css('top', e.clientY-$(this).height()/2 - 10)
+    window.getSelection().removeAllRanges()
+  })
+})
+
+$('.draggable-handler').mouseleave(stopDragging)
+$('.draggable-handler').mouseup(stopDragging)
+
+function stopDragging(){
+  drag = $(this).closest('.draggable')
+  drag.removeClass('dragging')
+  $(this).off('mousemove')
+}
+
 	    
 	
     </script>
