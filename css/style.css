@@ -837,3 +837,11 @@ fieldset {
   right: -20px;
   transition: background 0.2s, right 0.2s;
 }
+.draggable{
+  position: absolute;
+  z-index: 100
+}
+.dragging{
+  cursor: move;
+  z-index: 200 !important
+}
