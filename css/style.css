@@ -846,6 +846,12 @@ fieldset {
   z-index: 200 !important
 } */
 
+iframe{
+	    width: 100%;
+	    height:100%;
+	    border: none;
+	  }
+
 .group-handle {
 	height: 34px;
 	width: 10px;
