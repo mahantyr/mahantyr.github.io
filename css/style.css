@@ -837,11 +837,38 @@ fieldset {
   right: -20px;
   transition: background 0.2s, right 0.2s;
 }
-.draggable{
+/* .draggable{
   position: absolute;
   z-index: 100
 }
 .dragging{
   cursor: move;
   z-index: 200 !important
+} */
+
+.group-handle {
+	height: 34px;
+	width: 10px;
+	cursor: move;
+}
+
+.panel-heading {
+    cursor: move;
+}
+
+.draggable-group {
+	float: left;
+}
+
+#sortable {
+	padding: 0px;
+}
+
+#sort-holder {
+	display: none;
+}
+
+
+.draggable-group {
+    overflow: hidden;
 }
