@@ -62,10 +62,15 @@
 	</div>
 	</div>
 </div>
-<div style="position:relative">
+<!-- <div style="position:relative">
 	<div class="draggable draggable-handler" style ="bottom: 0px; right: 0px;">
       	<iframe id="chatFrame" src= "./EmbeddedChild.html"></iframe>
     	</div>
+</div> -->
+<div class="panel panel-primary draggable-panel toolbar-panel ui-draggable" style ="bottom: 0px; right: 0px;" id="toolbox-tools">
+    <div class="panel-heading lang-panel-header-tools">Soy un navegador retard</div>
+<iframe id="chatFrame" class="panel panel-primary draggable-panel toolbar-panel ui-draggable ui-resizable" src= "./EmbeddedChild.html"></iframe>
+
 </div>
 		
 <!-- 		 -->
@@ -362,37 +367,48 @@
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
     <script>
-        $(function(){
-            $("#button1").click(function(){
-                console.log('Test Click');
-               $('.helpButtonEnabled').trigger("click");
-               $('.embeddedServiceHelpButton').trigger("click");
-            });
-        });
+//         $(function(){
+//             $("#button1").click(function(){
+//                 console.log('Test Click');
+//                $('.helpButtonEnabled').trigger("click");
+//                $('.embeddedServiceHelpButton').trigger("click");
+//             });
+//         });
+	    
+	 $(document).ready(function() {
+
+    // Add drag and resize option to panel
+    $("#toolbox-tools").draggable({
+        handle: ".panel-heading",
+        stop: function(evt, el) {
+        }
+    });    
+    
+});
 // 	$('.draggable').draggable();
 // 	$(document).ready(function() {
   	
 // 	});
-	    $('.draggable-handler').mousedown(function(e){
-  drag = $(this).closest('.draggable')
-  drag.addClass('dragging')
-  drag.css('left', e.clientX-$(this).width()/2)
-  drag.css('top', e.clientY-$(this).height()/2 - 10)
-  $(this).on('mousemove', function(e){    
-    drag.css('left', e.clientX-$(this).width()/2)
-    drag.css('top', e.clientY-$(this).height()/2 - 10)
-    window.getSelection().removeAllRanges()
-  })
-})
+// 	    $('.draggable-handler').mousedown(function(e){
+//   drag = $(this).closest('.draggable')
+//   drag.addClass('dragging')
+//   drag.css('left', e.clientX-$(this).width()/2)
+//   drag.css('top', e.clientY-$(this).height()/2 - 10)
+//   $(this).on('mousemove', function(e){    
+//     drag.css('left', e.clientX-$(this).width()/2)
+//     drag.css('top', e.clientY-$(this).height()/2 - 10)
+//     window.getSelection().removeAllRanges()
+//   })
+// })
 
-$('.draggable-handler').mouseleave(stopDragging)
-$('.draggable-handler').mouseup(stopDragging)
+// $('.draggable-handler').mouseleave(stopDragging)
+// $('.draggable-handler').mouseup(stopDragging)
 
-function stopDragging(){
-  drag = $(this).closest('.draggable')
-  drag.removeClass('dragging')
-  $(this).off('mousemove')
-}
+// function stopDragging(){
+//   drag = $(this).closest('.draggable')
+//   drag.removeClass('dragging')
+//   $(this).off('mousemove')
+// }
 
 	    
 	
