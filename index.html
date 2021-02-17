@@ -454,7 +454,10 @@ $( "#draggable" )
     </style>
 <script type='text/javascript'>
 	function bootstrapChat() {
-		embedded_svc.bootstrapEmbeddedService();
+// 		embedded_svc.bootstrapEmbeddedService();
+		window.child.postMessage({
+                                  bootstrapEmbeddedService: true
+                                  }, '*');
 	}
 </script>
 <script type="application/javascript">
