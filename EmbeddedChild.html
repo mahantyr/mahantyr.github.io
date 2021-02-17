@@ -19,6 +19,15 @@
 
     <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
     <script type='text/javascript'>
+       window.onmessage = function(e) {
+      console.log(e.data.hasOwnProperty("bootstrapEmbeddedService"));
+      if (e.data.hasOwnProperty("bootstrapEmbeddedService")) {
+        if(e.data.bootstrapEmbeddedService){
+          embedded_svc.bootstrapEmbeddedService();
+        }
+      }
+    };
+      
       // On page load set the correct size of the iframe to account for either CWAE/Contact Us or Session Continuity.
       function helpButtonLoaded() {
         var helpButton = document.querySelector('.helpButton');
