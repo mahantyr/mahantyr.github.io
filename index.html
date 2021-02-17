@@ -68,8 +68,7 @@
     	</div>
 </div> -->
 		
-<div style ="bottom: 0px; right: 0px; position:absolute" class="panel-heading" id="toolbox-tools">
-    	<div class="panel-heading"></div>
+<div id = "draggable" class = "ui-widget-content">
 	<iframe id="chatFrame" src= "./EmbeddedChild.html"></iframe>
 </div>
 		
@@ -365,9 +364,9 @@
         </div>
     </div>
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>  
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" ></script>
+	<script src="js/jquery.js"></script>
+	<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script>
 //         $(function(){
 //             $("#button1").click(function(){
@@ -377,16 +376,22 @@
 //             });
 //         });
 	    
-	 $(document).ready(function() {
+// 	 $(document).ready(function() {
 
-    // Add drag and resize option to panel
-    $("#toolbox-tools").draggable({
-        handle: ".panel-heading",
-        stop: function(evt, el) {
-        }
-    });    
+//     // Add drag and resize option to panel
+//     $("#toolbox-tools").draggable({
+//         handle: ".panel-heading",
+//         stop: function(evt, el) {
+//         }
+//     });    
     
+// });
+	    
+$(function() {
+$( "#draggable" )
+.draggable();
 });
+	    
 // 	$('.draggable').draggable();
 // 	$(document).ready(function() {
   	
