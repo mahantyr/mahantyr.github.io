@@ -851,4 +851,4 @@ iframe{
 	    height:100%;
 	    border: none;
 	  }
-
+#draggable {padding: 0.5em; bottom: 0px; cursor:all-scroll; float: right;}
