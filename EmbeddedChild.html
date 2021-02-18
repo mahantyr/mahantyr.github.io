@@ -21,11 +21,9 @@
     <script type='text/javascript'>
        window.onmessage = function(e) {
          console.log("On message");
-      if (e.data.hasOwnProperty("bootstrapEmbeddedService")) {
         console.log("Bootstrap: "+e.data.bootstrapEmbeddedService);
         if(e.data.bootstrapEmbeddedService){
           embedded_svc.bootstrapEmbeddedService();
-        }
       }
     };
       
