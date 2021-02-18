@@ -852,3 +852,4 @@ iframe{
 	    border: none;
 	  }
 #draggable {padding: 0.5em; bottom: 0px; cursor:all-scroll; float: right;}
+.sidebarHeader[embeddedService-chatHeader_chatHeader] {cursor:all-scroll;}
