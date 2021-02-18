@@ -20,6 +20,7 @@
     <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
     <script type='text/javascript'>
        window.onmessage = function(e) {
+         console.log("On message");
       if (e.data.hasOwnProperty("bootstrapEmbeddedService")) {
         console.log("Bootstrap: "+e.data.bootstrapEmbeddedService);
         if(e.data.bootstrapEmbeddedService){
