@@ -148,7 +148,7 @@
         document.addEventListener('mousemove', moveAlong);
     }
     function startDragIfDraggable(evt) {
-        if (evt.target.classList.contains('sidebarHeader')) {
+        if (evt.target.tagName.contains('embeddedservice-chat-header')) {
             startDrag.call(evt.target, evt);
         }
     }
