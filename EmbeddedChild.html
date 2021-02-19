@@ -149,10 +149,12 @@
         document.addEventListener('mousemove', moveAlong);
     }
     function startDragIfDraggable(evt) {
-	    console.log(evt.target.tagName);
+	    console.log(evt.target.$$ShadowTokenKey$$);
 	    console.log(JSON.stringify(evt.target));
-        if (evt.target.tagName = "embeddedservice-chat-header") {
-            startDrag.call(evt.target, evt);
+        if (evt.target.$$ShadowTokenKey$$ == "embeddedService-chatHeader_chatHeader") {
+		if(evt.target.tagName == "HEADER" || evt.target.tagName == "H2" || evt.target.tagName == "IMG"){
+            		startDrag.call(evt.target, evt);
+		}
         }
     }
     document.body.addEventListener('mousedown', startDragIfDraggable);
