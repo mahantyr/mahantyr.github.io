@@ -149,6 +149,8 @@
         document.addEventListener('mousemove', moveAlong);
     }
     function startDragIfDraggable(evt) {
+	    console.log(evt.target.tagName);
+	    console.log(JSON.stringify(evt.target));
         if (evt.target.tagName = "embeddedservice-chat-header") {
             startDrag.call(evt.target, evt);
         }
