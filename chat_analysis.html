@@ -88,7 +88,8 @@
             }
         
         </style>
-        <script>
+        <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+        <script type='text/javascript'>
             /* Set the width of the sidebar to 250px (show it) */
             function openNav() {
                 document.getElementById("mySidepanel").style.width = "250px";
@@ -98,9 +99,7 @@
             function closeNav() {
                 document.getElementById("mySidepanel").style.width = "0";
             }
-        </script>
-        <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
-        <script type='text/javascript'>
+            
             var initESW = function(gslbBaseURL) {
                 embedded_svc.settings.displayHelpButton = true; //Or false
                 embedded_svc.settings.language = document.getElementById("selectLanguageOption"); //For example, enter 'en' or 'en-US'
