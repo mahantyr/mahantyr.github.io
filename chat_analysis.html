@@ -106,9 +106,14 @@
         
         <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
         <script type='text/javascript'>
+            var language = function(){
+                console.log(document.getElementById("selectLanguageOption"));
+                return document.getElementById("selectLanguageOption");
+            }
             var initESW = function(gslbBaseURL) {
+
                 embedded_svc.settings.displayHelpButton = true; //Or false
-                embedded_svc.settings.language = document.getElementById("selectLanguageOption"); //For example, enter 'en' or 'en-US'
+                embedded_svc.settings.language = language; //For example, enter 'en' or 'en-US'
         
                 //embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
                 //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
