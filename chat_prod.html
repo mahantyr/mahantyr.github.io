@@ -32,11 +32,10 @@
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">
             <img src="assets/Dell_Logo.jpg" class="d-inline-block align-top" alt="">
-        </a>
-        
+        </a>  
     </nav>
     <div class="navigationLink" style="text-align: center;">
-        <dev style="color:#fff; font-size: 20px;">DCSF Prod Development</dev>
+        <dev style="color:#fff; font-size: 16px;">DCSF Prod Development</dev>
     </div>  
 <div class="post">
 	 
@@ -80,7 +79,10 @@
 		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
 		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
 		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
-        
+
+		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		embedded_svc.settings.entryFeature = 'LiveAgent';
+
         embedded_svc.settings.extraPrechatFormDetails = [{
             "label":"First Name",  
             "transcriptFields": ["FirstName__c"]
@@ -109,21 +111,18 @@
 			}
         ];
 
-		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
-		embedded_svc.settings.entryFeature = 'LiveAgent';
-
 		embedded_svc.init(
-			'https://dcsf--sit1.my.salesforce.com',
-			'https://sit1-dellicm-dell-na174.cs34.force.com/liveAgentSetupFlow',
+			'https://dcsf.my.salesforce.com',
+			'https://dellicm-dell-na174.secure.force.com/liveAgentSetupFlow',
 			gslbBaseURL,
-			'00D2f0000008esE',
+			'00D6g000000GNab',
 			'Sales_Chat_Bot',
 			{
-				baseLiveAgentContentURL: 'https://c.la3-c1cs-ph2.salesforceliveagent.com/content',
-				deploymentId: '5722f0000004Czy',
-				buttonId: '5732f0000004D5h',
-				baseLiveAgentURL: 'https://d.la3-c1cs-ph2.salesforceliveagent.com/chat',
-				eswLiveAgentDevName: 'AU_SL_CON_GEN_PG',
+				baseLiveAgentContentURL: 'https://c.la1-c2-ia5.salesforceliveagent.com/content',
+				deploymentId: '5726g0000005fmi',
+				buttonId: '5736g0000005hQ2',
+				baseLiveAgentURL: 'https://d.la1-c2-ia5.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I6g000000DbsiEAC_178d45ba203',
 				isOfflineSupportEnabled: false
 			}
 		);
@@ -131,7 +130,7 @@
 
 	if (!window.embedded_svc) {
 		var s = document.createElement('script');
-		s.setAttribute('src', 'https://dcsf--sit1.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.setAttribute('src', 'https://dcsf.my.salesforce.com/embeddedservice/5.0/esw.min.js');
 		s.onload = function() {
 			initESW(null);
 		};
