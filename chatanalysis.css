@@ -113,7 +113,67 @@
  /* .embeddedServiceSidebarForm.formContent{
       background: #f7f7f7 !important;
   }*/
-
+  .sidepanel {
+    height: 250px; /* Specify a height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    right: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+  }
+  
+  /* The sidepanel links */
+  .sidepanel a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidepanel a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .sidepanel .closebtn {
+    position: absolute;
+    top: 0;
+    left: 25px;
+    font-size: 36px;
+    margin-right: 50px;
+  }
+  
+  /* Style the button that is used to open the sidepanel */
+  .openbtn {
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    background-color: #007db8;
+    box-shadow: 0 5px 5px 1px #e3e3e3;
+    padding: auto;
+    border: none;
+    color:  #e3e3e3;
+    float: right;
+    margin-top: 10%;
+    -ms-transform: rotate(90deg) translate(0, -20px);
+    -webkit-transform: rotate(90deg) translate(0, -20px);
+     transform: rotate(90deg) translate(0, -20px);
+    position: relative;
+    transition: background 0.2s, right 0.2s;
+  }
+  
+  .openbtn:hover {
+    background-color: rgb(172, 205, 228);
+  }
+  
   #userActivityConsole p {
     border-bottom: 1px solid #5a6268;
     padding: 3px;
@@ -126,117 +186,6 @@
     overflow-y: auto;
     max-height: 400px;
 }
-
-.btn-chat a {
-    font-family: arial;
-    color: #fff;
-    text-decoration: none;
-    background: #1798F7;
-    padding: 24px 20px 8px;
-    display: block;
-    font-weight: bold;
-    font-size: 14px;
-    box-shadow: 0 0 0 1px #03b2ff inset;
-    border: 1px solid #144866;
-    border-radius: 2px;
-    -ms-transform: rotate(90deg) translate(0, -20px);
-    -webkit-transform: rotate(90deg) translate(0, -20px);
-    transform: rotate(90deg) translate(0, -20px);
-    position: relative;
-    right: -27px;
-    transition: background 0.2s, right 0.2s;
-  }
-  .btn-chat a:hover {
-    background: #47B6F5;
-    right: -20px;
-    transition: background 0.2s, right 0.2s;
-  }
-
-  :root {
-    --drawer-width: 400px;
-  }
-  
-  .drawer {
-    position: fixed;
-    z-index: var(--zindex-overlay);
-  
-    height: 100%;
-    width: 100%;
-    max-width: var(--drawer-width);
-    top: 0;
-    right: 0;
-  
-    // hide drawer
-    visibility: hidden;
-    transition: visibility 0s 0.3s;
-  
-    &:focus {
-      outline: none;
-    }
-  }
-  
-  .drawer--is-visible {
-    visibility: visible;
-    transition: none;
-  }
-  
-  .drawer--open-left {
-    right: auto;
-    left: 0;
-  }
-  
-  .drawer__content {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-  
-    transform: translateX(100%);
-  
-    transition: transform 0.3s;
-    transition-timing-function: var(--ease-in-out);
-  
-    .drawer--open-left & {
-      transform: translateX(-100%);
-    }
-  
-    .drawer--is-visible & {
-      transform: translateX(0);
-    }
-  }
-  
-  .drawer__body {
-    height: 100%;
-    overflow: auto;
-    overscroll-behavior: contain;
-    -webkit-overflow-scrolling: touch; 
-  }
-  
-  .drawer__close-btn {
-    width: 32px;
-    height: 32px;
-  
-    flex-shrink: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    border-radius: 50%;
-    background-color: alpha(var(--color-bg), 0.95);
-    box-shadow: var(--shadow-sm);
-    transition: .2s;
-  
-    
-  }
-  
-
-.drawer--modal {
-    max-width: none;
-    background-color: alpha(var(--color-contrast-higher), 0);
-    transition: background-color 0.3s, visibility 0s 0.3s;
-}
-  
 
 
 

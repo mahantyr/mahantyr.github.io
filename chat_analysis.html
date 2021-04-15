@@ -69,29 +69,98 @@
         <div class="navigationLink" style="text-align: center;">
             <dev style="color:#fff; font-size: 20px;">Welcome to SFDC Chat Analysis</dev>
         </div>    
-        <!-- <div style="position: fixed">
-            <div class="btn-chat" id="livechat-compact-container" style="visibility: visible; opacity: 1;">
-            <div>
-                <a aria-controls="drawer-1" onclick="bootstrapChat()" href="#" class="link">Chat Service</a>
-            </div>
-            </div>
+        <!--<div id="mySidepanel" class="sidepanel">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
         </div>
-        <div class="drawer js-drawer" id="drawer-1">
-            <div class="drawer__content bg shadow-md" role="alertdialog" aria-labelledby="drawer-title-1">
-            <div class="drawer__body padding-md js-drawer__body">
-                <div class="text-component">
-                <h1 id="drawer-title-1" class="text-md">Drawer title</h1>
-                
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla molestiae laudantium quis et, veniam, eveniet aperiam facere dolorem iusto reiciendis veritatis dolorum nisi? Eligendi inventore nam nihil, rem dolores nulla autem repellat sunt iure omnis ullam nisi voluptatem id expedita beatae, officiis accusantium consequatur, ea dignissimos enim consequuntur odio cumque.</p>
-        
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla molestiae laudantium quis et, veniam, eveniet aperiam facere dolorem iusto reiciendis veritatis dolorum nisi? Eligendi inventore nam nihil, rem dolores nulla autem repellat sunt iure omnis ullam nisi voluptatem id expedita beatae, officiis accusantium consequatur, ea dignissimos enim consequuntur odio cumque.</p>
-                </div>
-            </div>
-        
-            <button class="reset drawer__close-btn position-fixed top-0 right-0 z-index-fixed-element margin-xs js-drawer__close js-tab-focus">
-                <svg class="icon icon--xs" viewBox="0 0 16 16"><title>Close drawer panel</title><g stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"><line x1="13.5" y1="2.5" x2="2.5" y2="13.5"></line><line x1="2.5" y1="2.5" x2="13.5" y2="13.5"></line></g></svg>
-            </button>
-            </div>
-        </div> -->
+          
+        <button class="openbtn" onclick="openNav()"> Chat or Call </button> -->
+        <script>
+            /* Set the width of the sidebar to 250px (show it) */
+            function openNav() {
+                document.getElementById("mySidepanel").style.width = "250px";
+            }
+            
+            /* Set the width of the sidebar to 0 (hide it) */
+            function closeNav() {
+                document.getElementById("mySidepanel").style.width = "0";
+            }
+        </script>
+        <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+        <script type='text/javascript'>
+            var initESW = function(gslbBaseURL) {
+                embedded_svc.settings.displayHelpButton = true; //Or false
+                embedded_svc.settings.language = document.getElementById("selectLanguageOption"); //For example, enter 'en' or 'en-US'
+
+                //embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+                //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+
+                //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+                //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+
+                // Settings for Chat
+                //embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+                    // Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+                    // Returns a valid button ID.
+                //};
+                //embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+                //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+                //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+
+                embedded_svc.settings.prechatBackgroundImgURL = "https://www.rhinodesignltd.com/wp-content/uploads/2017/07/dell-project-banner.jpg";
+                embedded_svc.settings.smallCompanyLogoImgURL = "https://pchouse.com.pk/wp-content/uploads/2019/10/600px-Dell_Logo.png";
+                embedded_svc.settings.chatbotAvatarImgURL = "https://miro.medium.com/max/400/1*Y1klwgS90g788BD8gf3aLw.png";
+                embedded_svc.settings.avatarImgURL = "https://avatars.sched.co/9/6b/8687287/avatar.jpg?f85";
+
+                embedded_svc.settings.extraPrechatFormDetails = [{
+                    "label":"First Name",  
+                    "transcriptFields": ["FirstName__c"]
+                    },{
+                    "label":"Last Name", 
+                    "transcriptFields": ["LastName__c"]
+                    },{
+                    "label":"Email", 
+                    "transcriptFields": ["Email__c"]
+                    },{
+                    "label":"Language", 
+                    "transcriptFields": ["Language__c"]
+                    }
+                ];
+
+
+                embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+                embedded_svc.settings.entryFeature = 'LiveAgent';
+
+                embedded_svc.init(
+                    'https://dellicm--moxiepoc.my.salesforce.com',
+                    'https://moxiepoc-dellcommunities.cs14.force.com/chat',
+                    gslbBaseURL,
+                    '00Dc0000003lKkM',
+                    'Chat_Agent_Group',
+                    {
+                        baseLiveAgentContentURL: 'https://c.la1-c1cs-ord.salesforceliveagent.com/content',
+                        deploymentId: '572c00000008Ol2',
+                        buttonId: '573c00000008PAR',
+                        baseLiveAgentURL: 'https://d.la1-c1cs-ord.salesforceliveagent.com/chat',
+                        eswLiveAgentDevName: 'Chat_Agent_Group',
+                        isOfflineSupportEnabled: false
+                    }
+                );
+            };
+
+            if (!window.embedded_svc) {
+                var s = document.createElement('script');
+                s.setAttribute('src', 'https://dellicm--moxiepoc.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+                s.onload = function() {
+                    initESW(null);
+                };
+                document.body.appendChild(s);
+            } else {
+                initESW('https://service.force.com');
+            }
+        </script>
     </body>
 </html>
