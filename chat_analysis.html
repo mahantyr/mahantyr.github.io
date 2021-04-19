@@ -36,12 +36,12 @@
                 <select id="selectLanguageOption" style="margin-left: -5px;" onchange="selectedLanguageFunc()">
                     <option value="en">en</option>
                     <option>en-US</option>
-                    <option value="de">de</option> 
+                    <option>de</option> 
                     <option>pt</option>
                     <option>cn</option>
                     <option>zh</option>
-                    <option>zh-CN</option>
-                    <option>zh-tw</option>
+                    <option>zh_CN</option>
+                    <option>zh_TW</option>
                     <option>es</option>
                     <option>ko</option>
                     <option>ja</option>       
@@ -58,7 +58,6 @@
                     <option>pt-BR</option>  
                     <option>ru</option> 
                     <option>es_MX</option> 
-                    <option>es-MX</option>
                     <option>sv</option>
                     <option>th</option>
                     <option>pl</option>
@@ -151,8 +150,9 @@
                         "label":"Email", 
                         "transcriptFields": ["Email__c"]
                         },{
-                        "label":"Language", 
-                        "transcriptFields": ["Language__c"]
+                        "label":"Language Code", 
+                        "value":language,
+                        "transcriptFields": ["Language_Code__c"]
                         }
                     ];
             
