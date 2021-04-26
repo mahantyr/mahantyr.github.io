@@ -72,7 +72,7 @@
 			"transcriptFields": ["Selection_Type__c"]
 			},{
 			"label":"Channel", 
-			"value":"Home",
+			"value":"",
 			"transcriptFields": ["Channel__c"]
 			},{
 			"label":"Country", 
@@ -85,16 +85,16 @@
 		embedded_svc.settings.entryFeature = 'LiveAgent';
 
 		embedded_svc.init(
-			'https://business-data-7908-dev-ed.cs92.my.salesforce.com',
-			'https://sandbox-moxiescratchorg1-developer-edition.cs92.force.com/liveAgentSetupFlow',
+			'https://platform-efficiency-5535-dev-ed.cs79.my.salesforce.com',
+			'https://sandbox-samplechat-developer-edition.cs79.force.com/liveAgentSetupFlow',
 			gslbBaseURL,
-			'00D3F000000QDVY',
+			'00D1h000000IIZd',
 			'Sample_Chat',
 			{
-				baseLiveAgentContentURL: 'https://c.la2-c1cs-iad.salesforceliveagent.com/content',
-				deploymentId: '5723F0000008VsY',
-				buttonId: '5733F0000008W6M',
-				baseLiveAgentURL: 'https://d.la2-c1cs-iad.salesforceliveagent.com/chat',
+				baseLiveAgentContentURL: 'https://c.la2-c1cs-ord.salesforceliveagent.com/content',
+				deploymentId: '5721h000000Cepp',
+				buttonId: '5731h000000Cflc',
+				baseLiveAgentURL: 'https://d.la2-c1cs-ord.salesforceliveagent.com/chat',
 				eswLiveAgentDevName: 'Sample_Chat',
 				isOfflineSupportEnabled: false
 			}
@@ -103,7 +103,7 @@
 
 	if (!window.embedded_svc) {
 		var s = document.createElement('script');
-		s.setAttribute('src', 'https://business-data-7908-dev-ed.cs92.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.setAttribute('src', 'https://platform-efficiency-5535-dev-ed.cs79.my.salesforce.com/embeddedservice/5.0/esw.min.js');
 		s.onload = function() {
 			initESW(null);
 		};
