@@ -4,27 +4,17 @@
     <head>
       
     <meta charset="utf-8" />
-    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    
     <title>Analysis</title>
     <meta name="viewport" content= "width=device-width, initial-scale=1.0"> 
-    <!-- <link rel="stylesheet" media="screen" type="text/css" href="blog.css"> -->
+    
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
-    <!-- <script src="../../../node_modules/jquery/dist/jquery.min.js"></script> -->
+    
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" /> -->
     <link rel="stylesheet" type="text/css" media="screen" href="chatanalysis.css" />
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script> -->
-    <!-- <style type='text/css'>
-            .embeddedServiceHelpButton .helpButton .uiButton { background-color: #005290; font-family: "Salesforce Sans", sans-serif; }
-            .embeddedServiceHelpButton .helpButton .uiButton:focus { outline: 1px solid #005290; }
-            @font-face {
-            font-family: 'Salesforce Sans';
-            src: url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.woff') format('woff'),
-    url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.ttf') format('truetype');
-            }
-    </style>  -->
+    
 </head>
     <body>
         <nav class="navbar navbar-light bg-light">
@@ -79,10 +69,15 @@
         <button class="openbtn" onclick="startChat()"> Chat or Call </button>
         <script>
             function startChat(){
+                
+                //Get all required form details in object
                 var e = document.getElementById("selectLanguageOption");
                 var selectedLanguageDropdown = e.options[e.selectedIndex].value;//change it here
                 
                 triggerSnapin(selectedLanguageDropdown)
+
+
+                triggerSnapin(objSnapin)
             }
 
             function openNav() {
@@ -115,26 +110,8 @@
         <script type='text/javascript'>
             function triggerSnapin(language) {
                 var initESW = function(gslbBaseURL) {
-                    //var userLocale = selectedLanguageFunc();
-                    console.log(language);
                     embedded_svc.settings.displayHelpButton = true; //Or false
-                    embedded_svc.settings.language = language; //For example, enter 'en' or 'en-US'
-            
-                    //embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
-                    //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
-            
-                    //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
-                    //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
-            
-                    // Settings for Chat
-                    //embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
-                        // Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
-                        // Returns a valid button ID.
-                    //};
-                    //embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
-                    //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
-                    //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
-            
+                    embedded_svc.settings.language = language; 
                     
                     /*
                     ----------Spike Testing---------------------------
@@ -157,7 +134,7 @@
                     */
                     embedded_svc.settings.extraPrechatFormDetails = [{
                         "label":"Language Code", 
-                        "value":"en",
+                        "value":language,
                         "transcriptFields": ["Language_Code__c"]
                         },{
                         "label":"Selection Type", 
@@ -168,7 +145,7 @@
                         "value":"",
                         "transcriptFields": ["Channel__c"]
                         },{
-                        "label":"Country", 
+                        "label":"", 
                         "value":"us",
                         "transcriptFields": ["Country__c"]
                         }
