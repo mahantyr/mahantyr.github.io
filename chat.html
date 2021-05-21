@@ -3,13 +3,13 @@
 <head>
 	<title>DCSF Scratch Org</title>
 	<meta name="viewport" content= "width=device-width, initial-scale=1.0"> 
-	<link rel="stylesheet" type="text/css" href="blog.css">
+
 	<!-- <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" /> -->
     <link rel="stylesheet" type="text/css" media="screen" href="chatanalysis.css" />
 </head>
 <body>
 
-	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic|Source+Code+Pro:400,700' rel='stylesheet' type='text/css'>
+	
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">
             <img src="assets/Dell_Logo.jpg" class="d-inline-block align-top" alt="">
@@ -20,8 +20,6 @@
     </div>  
 	<div class="post">
 		
-		<!-- <h2>DCSF Prod Development</h2> -->
-
 		<p class="quote">
 			This page is designed to host the Sample Bot created in Org
 		</p>
@@ -94,17 +92,17 @@
 			}
 		];
 		embedded_svc.init(
-			'https://platform-efficiency-5535-dev-ed.cs79.my.salesforce.com',
-			'https://sandbox-samplechat-developer-edition.cs79.force.com/liveAgentSetupFlow',
+			'https://ability-velocity-8976-dev-ed.cs92.my.salesforce.com',
+			'https://sandbox-sample-chat-developer-edition.cs92.force.com/liveAgentSetupFlow',
 			gslbBaseURL,
-			'00D1h000000IIZd',
+			'00D3F000000RUNe',
 			'DELL_CONNECT_DEFAULT',
 			{
 				baseLiveAgentContentURL: 'https://c.la2-c1cs-ord.salesforceliveagent.com/content',
-				deploymentId: '5721h000000Cepp',
-				buttonId: '5731h000000CiIY',
+				deploymentId: '5723F000000CkSh',
+				buttonId: '5733F000000ClGu',
 				baseLiveAgentURL: 'https://d.la2-c1cs-ord.salesforceliveagent.com/chat',
-				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I1h000000CaweEAC_1795ab76664',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I3F0000004CkFUAU_179898ae8cd',
 				isOfflineSupportEnabled: false
 			}
 		);
@@ -112,7 +110,7 @@
 
 	if (!window.embedded_svc) {
 		var s = document.createElement('script');
-		s.setAttribute('src', 'https://platform-efficiency-5535-dev-ed.cs79.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.setAttribute('src', 'https://ability-velocity-8976-dev-ed.cs92.my.salesforce.com/embeddedservice/5.0/esw.min.js');
 		s.onload = function() {
 			initESW(null);
 		};
