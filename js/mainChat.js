@@ -36,6 +36,7 @@ function triggerSnapin(snapInObject) {
 
 function initiateChatBot(snapInObject) {
     try{
+        console.log('initiateChatBot');
         var initESW = function (gslbBaseURL) {
             
             var css = '.embeddedServiceHelpButton .helpButton .uiButton {'+
@@ -102,10 +103,11 @@ function initiateChatBot(snapInObject) {
             s.setAttribute('src', snapInObject.snapInJs);
             s.onload = function () {
                 initESW(null);;
-                
+                console.log('window.embedded_svc');
             };
             document.body.appendChild(s);
         } else {
+            console.log('window.embedded_svc.else');
             initESW(snapInObject.serviceForceURL);
             
         }
