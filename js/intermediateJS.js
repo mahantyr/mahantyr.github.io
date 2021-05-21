@@ -2,6 +2,7 @@ var importedScript = document.createElement('script');
 importedScript.src = '/mainChat.js';
 document.body.appendChild(importScripts);
 
+
 function startChatImported(){
     var snapInObject = {
         firstName:"",
