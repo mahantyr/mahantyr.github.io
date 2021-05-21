@@ -14,7 +14,7 @@ var chatBotObject = {
 
 
 function triggerSnapin(snapInObject) {
-    
+
     try {
         
         console.log('triggerSnapin');
@@ -48,7 +48,11 @@ function initiateChatBot(snapInObject) {
             'font-family: "Arial", sans-serif;}'+
         
             '.embeddedServiceHelpButton .helpButton .uiButton:focus {'+
-            'outline: 1px solid #005290;}';
+            'outline: 1px solid #005290;}'+
+
+            '.embeddedServiceSidebar.layout-docked .dockableContainer,'+
+            ' .embeddedServiceSidebar.layout-float .dockableContainer '+
+            '{z-index: 100002;}';
 
             style = document.createElement('style');
             style.type = 'text/css';
