@@ -4,7 +4,7 @@ var chatBotObject = {
                   organizationId: '00D2f0000008esE',
                   baseLiveAgentContentURL: 'https://c.la3-c1cs-ph2.salesforceliveagent.com/content',
                   deploymentId: '5722f0000004Czy',
-                  buttonId = '5732f0000004DDg',
+                  buttonId : '5732f0000004DDg',
                   baseLiveAgentURL: 'https://d.la3-c1cs-ph2.salesforceliveagent.com/chat',
                   eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I2f00000000AGEAY_179601c8497',
                   serviceForceURL: "https://service.force.com",
@@ -14,6 +14,15 @@ var chatBotObject = {
 
 function triggerSnapin(snapInObject) {
     try {
+
+        var snapinExists = document.querySelector(".embeddedServiceSidebar");
+
+        if(!snapinExists){
+
+        }
+        else{
+
+        }
         snapInObject.chatBotInitURL = chatBotObject.chatBotInitURL;
         snapInObject.chatBotPublicSites = chatBotObject.chatBotPublicSites;
         snapInObject.organizationId = chatBotObject.organizationId;
