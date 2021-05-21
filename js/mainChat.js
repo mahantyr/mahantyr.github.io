@@ -17,7 +17,7 @@ function triggerSnapin(snapInObject) {
 
         // 
         
-        conole.log('triggerSnapin');
+        console.log('triggerSnapin');
         snapInObject.chatBotInitURL = chatBotObject.chatBotInitURL;
         snapInObject.chatBotPublicSites = chatBotObject.chatBotPublicSites;
         snapInObject.organizationId = chatBotObject.organizationId;
