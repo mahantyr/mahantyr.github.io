@@ -1,18 +1,20 @@
 var chatBotObject = {
-                  chatBotInitURL: 'https://dcsf--sit1.my.salesforce.com',
-                  chatBotPublicSites: 'https://sit1-dellicm-dell-na174.cs34.force.com/liveAgentSetupFlow',
-                  organizationId: '00D2f0000008esE',
-                  baseLiveAgentContentURL: 'https://c.la3-c1cs-ph2.salesforceliveagent.com/content',
-                  deploymentId: '5722f0000004Czy',
-                  buttonId : '5732f0000004DDg',
-                  baseLiveAgentURL: 'https://d.la3-c1cs-ph2.salesforceliveagent.com/chat',
-                  eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I2f00000000AGEAY_179601c8497',
-                  serviceForceURL: "https://service.force.com",
-                  snapInJs: 'https://dcsf--sit1.my.salesforce.com/embeddedservice/5.0/esw.min.js'
+                chatBotInitURL: 'https://dcsf--sit1.my.salesforce.com',
+                chatBotPublicSites: 'https://sit1-dellicm-dell-na174.cs34.force.com/liveAgentSetupFlow',
+                organizationId: '00D2f0000008esE',
+                baseLiveAgentContentURL: 'https://c.la3-c1cs-ph2.salesforceliveagent.com/content',
+                deploymentId: '5722f0000004Czy',
+                buttonId : '5732f0000004DDg',
+                baseLiveAgentURL: 'https://d.la3-c1cs-ph2.salesforceliveagent.com/chat',
+                eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I2f00000000AGEAY_179601c8497',
+                serviceForceURL: "https://service.force.com",
+                snapInJs: 'https://dcsf--sit1.my.salesforce.com/embeddedservice/5.0/esw.min.js',
+                componentName: 'DELL_CONNECT_DEFAULT'
                 };
 
 
 function triggerSnapin(snapInObject) {
+    
     try {
         
         console.log('triggerSnapin');
@@ -26,6 +28,7 @@ function triggerSnapin(snapInObject) {
         snapInObject.eswLiveAgentDevName = chatBotObject.eswLiveAgentDevName;
         snapInObject.serviceForceURL = chatBotObject.serviceForceURL;
         snapInObject.snapInJs = chatBotObject.snapInJs;
+        snapInObject.componentName = chatBotObject.componentName;
 
         initiateChatBot(snapInObject);
     }
@@ -61,6 +64,8 @@ function initiateChatBot(snapInObject) {
 
             embedded_svc.settings.language = snapInObject.languageCode;
             embedded_svc.settings.displayHelpButton = true;
+            embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+			embedded_svc.settings.entryFeature = 'LiveAgent';
 
             embedded_svc.settings.extraPrechatFormDetails = [
                 {
@@ -81,15 +86,15 @@ function initiateChatBot(snapInObject) {
 				"transcriptFields": ["Country__c"]
 				}];
 
-                embedded_svc.settings.enabledFeatures = ['LiveAgent'];
-                embedded_svc.settings.entryFeature = 'LiveAgent';
+                
 
                 embedded_svc.init(
                     snapInObject.chatBotInitURL,
                     snapInObject.chatBotPublicSites, 
                     gslbBaseURL, 
                     snapInObject.organizationId, 
-                    snapInObject.componentName, {
+                    snapInObject.componentName, 
+                    {
                         baseLiveAgentContentURL: snapInObject.baseLiveAgentContentURL,
                         deploymentId: snapInObject.deploymentId,
                         buttonId: snapInObject.buttonId,
