@@ -37,6 +37,7 @@ function triggerSnapin(snapInObject) {
 function initiateChatBot(snapInObject) {
     try{
         console.log('initiateChatBot');
+        console.log(JSON.stringify(snapInObject));
         var initESW = function (gslbBaseURL) {
             
             var css = '.embeddedServiceHelpButton .helpButton .uiButton {'+
