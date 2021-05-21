@@ -109,12 +109,12 @@ function initiateChatBot(snapInObject) {
             s.setAttribute('src', snapInObject.snapInJs);
             s.onload = function () {
                 initESW(null);;
-                onBotStart();
+                
             };
             document.body.appendChild(s);
         } else {
             initESW(snapInObject.serviceForceURL);
-            onBotStart();
+            
         }
     }
     catch (e) {
