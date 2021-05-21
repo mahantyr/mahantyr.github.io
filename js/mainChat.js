@@ -59,7 +59,7 @@ function initiateChatBot(snapInObject) {
 
 
             embedded_svc.settings.language = snapInObject.languageCode;
-            embedded_svc.settings.displayHelpButton = false;
+            embedded_svc.settings.displayHelpButton = true;
 
             embedded_svc.settings.extraPrechatFormDetails = [
                 {
@@ -102,7 +102,7 @@ function initiateChatBot(snapInObject) {
             var s = document.createElement('script');
             s.setAttribute('src', snapInObject.snapInJs);
             s.onload = function () {
-                initESW(null);;
+                initESW(null);
                 console.log('window.embedded_svc');
             };
             document.body.appendChild(s);
