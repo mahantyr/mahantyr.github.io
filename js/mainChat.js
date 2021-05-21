@@ -52,7 +52,7 @@ function initiateChatBot(snapInObject) {
 
             '.embeddedServiceSidebar.layout-docked .dockableContainer,'+
             ' .embeddedServiceSidebar.layout-float .dockableContainer '+
-            '{z-index: 100002;}';
+            '{z-index: 100002 !important;}';
 
             style = document.createElement('style');
             style.type = 'text/css';
