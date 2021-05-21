@@ -15,14 +15,9 @@ var chatBotObject = {
 function triggerSnapin(snapInObject) {
     try {
 
-        var snapinExists = document.querySelector(".embeddedServiceSidebar");
-
-        if(!snapinExists){
-
-        }
-        else{
-
-        }
+        // 
+        
+        conole.log('triggerSnapin');
         snapInObject.chatBotInitURL = chatBotObject.chatBotInitURL;
         snapInObject.chatBotPublicSites = chatBotObject.chatBotPublicSites;
         snapInObject.organizationId = chatBotObject.organizationId;
