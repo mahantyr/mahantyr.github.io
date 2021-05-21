@@ -1,5 +1,5 @@
 var importedScript = document.createElement('script');
-importScripts.src = '/mainChat.js';
+importedScript.src = '/mainChat.js';
 document.body.appendChild(importScripts);
 
 function startChatImported(){
