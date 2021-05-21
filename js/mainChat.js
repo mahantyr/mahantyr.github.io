@@ -14,8 +14,6 @@ var chatBotObject = {
 
 function triggerSnapin(snapInObject) {
     try {
-
-        // 
         
         console.log('triggerSnapin');
         snapInObject.chatBotInitURL = chatBotObject.chatBotInitURL;
