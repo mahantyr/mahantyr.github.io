@@ -4,9 +4,6 @@
 	<title>SIT 1</title>
 	<meta name="viewport" content= "width=device-width, initial-scale=1.0"> 
 	<link rel="stylesheet" type="text/css" media="screen" href="../chatanalysis.css" />
-
-	
-	
 </head>
 <body>
 
@@ -28,8 +25,6 @@
 	<button class="openbtn" onclick="startChat()"> Chat or Call </button>
 
 	
-	<!-- <script src="https://dellicm--moxiepoc.lightning.force.com/resource/eswResource" defer></script> -->
-	<!-- <script src="../js/intermediateJS.js" defer></script> -->
 	<script type='text/javascript'>
 		async function loadScript(src) {
 			return new Promise(function (resolve, reject) {
@@ -38,7 +33,7 @@
 				s.src = src;
 				s.onload = resolve;
 				s.onerror = reject;
-				//s.defer = true;
+				s.defer = true;
 				document.head.appendChild(s);
 			});
 		}
@@ -52,7 +47,7 @@
 				seletionType:"",
 				channel:"",
 				countryCode:"us",
-				entryPoint:"dell.com"
+				origin:"sales"
 			};
 			console.log('Inside startChat');
 			await loadScript('https://moxiepoc-dellcommunities.cs14.force.com/resource/mainChatMini/mainChatMini/mainChatMini.js');
