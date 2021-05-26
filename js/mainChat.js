@@ -1,16 +1,16 @@
 var chatBotObject = {
-                chatBotInitURL: 'https://dcsf--sit1.my.salesforce.com',
-                chatBotPublicSites: 'https://sit1-dellicm-dell-na174.cs34.force.com/liveAgentSetupFlow',
-                organizationId: '00D2f0000008esE',
-                baseLiveAgentContentURL: 'https://c.la3-c1cs-ph2.salesforceliveagent.com/content',
-                deploymentId: '5722f0000004Czy',
-                buttonId : '5732f0000004DDg',
-                baseLiveAgentURL: 'https://d.la3-c1cs-ph2.salesforceliveagent.com/chat',
-                eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I2f00000000AGEAY_179601c8497',
-                serviceForceURL: "https://service.force.com",
-                snapInJs: 'https://dcsf--sit1.my.salesforce.com/embeddedservice/5.0/esw.min.js',
-                componentName: 'DELL_CONNECT_DEFAULT'
-                };
+                chatBotInitURL:'https://dcsf--sit1.my.salesforce.com',
+                chatBotPublicSites:'https://sit1-dellicm-dell-na174.cs34.force.com/liveAgentSetupFlow',
+                organizationId:'00D2f0000008esE',
+                baseLiveAgentContentURL:'https://c.la3-c1cs-ph2.salesforceliveagent.com/content',
+                deploymentId:'5722f0000004Czy',
+                buttonId :'5732f0000004DDg',
+                baseLiveAgentURL:'https://d.la3-c1cs-ph2.salesforceliveagent.com/chat',
+                eswLiveAgentDevName:'EmbeddedServiceLiveAgent_Parent04I2f00000000AGEAY_179601c8497',
+                serviceForceURL:'https://service.force.com',
+                snapInJs:'https://dcsf--sit1.my.salesforce.com/embeddedservice/5.0/esw.min.js',
+                componentName:'DELL_CONNECT_DEFAULT'
+};
 
 
 function triggerSnapin(snapInObject) {
@@ -83,12 +83,16 @@ function initiateChatBot(snapInObject) {
 				},{
 				"label":"Channel", 
 				"value":snapInObject.channel,
-				"transcriptFields": ["Channel__c"]
+                "transcriptFields": ["Channel__c"]
 				},{
 				"label":"Country", 
 				"value":snapInObject.countryCode,
 				"transcriptFields": ["Country__c"]
-				}];
+				},{
+                "label":"Origin", 
+                "value":snapInObject.origin,
+                "transcriptFields": ["Origin__c"]
+                }];
 
                 
 
