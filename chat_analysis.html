@@ -23,7 +23,7 @@
             </a>
             <span id="selectLanguage" style="float: right; display: block; margin-right:5px">
                 <span style="background: #6c757d;color: #fff;width: 38px;height: 28px;padding: 2px 11px;border-radius: .25rem 0 0 .25rem;"><i class="fa fa-globe"></i></span>
-                <select id="selectLanguageOption" style="margin-left: -5px;" onchange="startChat()">
+                <!-- <select id="selectLanguageOption" style="margin-left: -5px;" onchange="startChat()">
                     <option value="en">en</option>
                     <option>en-US</option>
                     <option>de</option> 
@@ -52,6 +52,70 @@
                     <option>th</option>
                     <option>pl</option>
                     <option>sk</option>
+                </select> -->
+                <select id="selectLanguageCode" style="margin-left: -5px;">
+                    <option value="en">en</option>
+                    <option>fr</option>
+                    <option>de</option> 
+                    <option>zh</option>
+                    <option>es</option>
+                    <option>ja</option>
+                    <option>nl</option>
+                    <option>pt</option>
+                    <option>sv</option>
+                </select>
+                <select id="selectCountryCode" style="margin-left: -5px;">
+                    <option value="en">en</option>
+                    <option>au</option>
+                    <option>ca</option> 
+                    <option>de</option>
+                    <option>cn</option>
+                    <option>hk</option>
+                    <option>ch</option>
+                    <option>es</option>
+                    <option>fr</option>
+                    <option>ie</option>
+                    <option>in</option>
+                    <option>jp</option>
+                    <option>my</option>
+                    <option>nl</option>
+                    <option>nz</option>
+                    <option>br</option>
+                    <option>ai</option>
+                    <option>ag</option>
+                    <option>aw</option>
+                    <option>bs</option>
+                    <option>bb</option>
+                    <option>bz</option>
+                    <option>bm</option>
+                    <option>vg</option>
+                    <option>cr</option>
+                    <option>dm</option>
+                    <option>do</option>
+                    <option>sv</option>
+                    <option>gd</option>
+                    <option>gt</option>
+                    <option>gy</option>
+                    <option>ht</option>
+                    <option>hn</option>
+                    <option>ky</option>
+                    <option>jm</option>
+                    <option>an</option>
+                    <option>ni</option>
+                    <option>pa</option>
+                    <option>pr</option>
+                    <option>kn</option>
+                    <option>vc</option>
+                    <option>lc</option>
+                    <option>sr</option>
+                    <option>tt</option>
+                    <option>tc</option>
+                    <option>vi</option>
+                    <option>se</option>
+                    <option>sg</option>
+                    <option>uk</option>
+                    <option>us</option>
+                    <option>ca</option>
                 </select>
             </span>
         </nav>
@@ -71,13 +135,11 @@
             function startChat(){
                 
                 //Get all required form details in object
-                var e = document.getElementById("selectLanguageOption");
-                var selectedLanguageDropdown = e.options[e.selectedIndex].value;//change it here
-                
-                triggerSnapin(selectedLanguageDropdown)
-
-
-                triggerSnapin(objSnapin)
+                var lang = document.getElementById("selectLanguageCode");
+                var country = document.getElementById("selectCountryCode");
+                var selectedLanguageDropdown = lang.options[lang.selectedIndex].value;
+                var selectedCountryDropdown = country.options[country.selectedIndex].value;
+                triggerSnapin(selectedLanguageDropdown, selectedCountryDropdown)
             }
 
             function openNav() {
@@ -93,11 +155,17 @@
         </script>
         <style type='text/css'>
             .embeddedServiceHelpButton .helpButton .uiButton {
-                background-color: #005290;
+                background-color: #0063B8;
                 font-family: "Arial", sans-serif;
             }
             .embeddedServiceHelpButton .helpButton .uiButton:focus {
-                outline: 1px solid #005290;
+                outline: 1px solid #0063B8;
+            }
+            .embeddedServiceLiveAgentStateChatItem .nameAndTimeContent {
+                color: #7E7E7E !important;
+            }
+            .embeddedServiceLiveAgentStateChatInputFooter.chasitorInputWrapper {
+                background-color: #f5f6f7 !important;
             }
                
             /** Hide the queue position unless waiting for chat **/
@@ -108,30 +176,12 @@
         
         <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
         <script type='text/javascript'>
-            function triggerSnapin(language) {
+            function triggerSnapin(language, country) {
                 var initESW = function(gslbBaseURL) {
                     embedded_svc.settings.displayHelpButton = true; //Or false
-                    embedded_svc.settings.language = language; 
+                    //embedded_svc.settings.language = language; 
                     
-                    /*
-                    ----------Spike Testing---------------------------
-                    embedded_svc.settings.extraPrechatFormDetails = [{
-                        "label":"First Name",  
-                        "transcriptFields": ["FirstName__c"]
-                        },{
-                        "label":"Last Name", 
-                        "transcriptFields": ["LastName__c"]
-                        },{
-                        "label":"Email", 
-                        "transcriptFields": ["Email__c"]
-                        },{
-                        "label":"Language Code", 
-                        "value": language,
-                        "transcriptFields": ["Language_Code__c"]
-                        }
-                    ];
-                    ------------------------------------------------
-                    */
+                   
                     embedded_svc.settings.extraPrechatFormDetails = [{
                         "label":"Language Code", 
                         "value":language,
@@ -146,29 +196,36 @@
                         "transcriptFields": ["Channel__c"]
                         },{
                         "label":"", 
-                        "value":"us",
+                        "value":country,
                         "transcriptFields": ["Country__c"]
+                        },{
+                            "label":"Origin", 
+                            "value":"Sales",
+                            "transcriptFields": ["Origin__c"]
                         }
                     ];
-            
+                    
+                    embedded_svc.settings.avatarImgURL = "https://ability-velocity-8976-dev-ed--c.visualforce.com/resource/1622088894000/Dell_Snapin_Agent_Avatar?";
+		            embedded_svc.settings.chatbotAvatarImgURL = "https://ability-velocity-8976-dev-ed--c.visualforce.com/resource/1622088948000/Dell_Snapin_Bot_Avatar?";
+
             
                     embedded_svc.settings.enabledFeatures = ['LiveAgent'];
                     embedded_svc.settings.entryFeature = 'LiveAgent';
             
                     embedded_svc.init(
-			'https://ability-velocity-8976-dev-ed.cs92.my.salesforce.com',
-			'https://sandbox-sample-chat-developer-edition.cs92.force.com/liveAgentSetupFlow',
-			gslbBaseURL,
-			'00D3F000000RUNe',
-			'DELL_CONNECT_DEFAULT',
-			{
-				baseLiveAgentContentURL: 'https://c.la2-c1cs-ord.salesforceliveagent.com/content',
-				deploymentId: '5723F000000CkSh',
-				buttonId: '5733F000000ClGu',
-				baseLiveAgentURL: 'https://d.la2-c1cs-ord.salesforceliveagent.com/chat',
-				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I3F0000004CkFUAU_179898ae8cd',
-				isOfflineSupportEnabled: false
-			}
+                        'https://ability-velocity-8976-dev-ed.cs92.my.salesforce.com',
+                        'https://sandbox-sample-chat-developer-edition.cs92.force.com/liveAgentSetupFlow',
+                        gslbBaseURL,
+                        '00D3F000000RUNe',
+                        'DELL_CONNECT_DEFAULT',
+                        {
+                            baseLiveAgentContentURL: 'https://c.la2-c1cs-ord.salesforceliveagent.com/content',
+                            deploymentId: '5723F000000CkSh',
+                            buttonId: '5733F000000ClGu',
+                            baseLiveAgentURL: 'https://d.la2-c1cs-ord.salesforceliveagent.com/chat',
+                            eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I3F0000004CkFUAU_179898ae8cd',
+                            isOfflineSupportEnabled: false
+                        }
 		);
 	};
 
