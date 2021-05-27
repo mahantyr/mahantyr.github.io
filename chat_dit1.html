@@ -31,21 +31,17 @@
 
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
-		background-color: #005290;
+		background-color: #0063B8;
 		font-family: "Arial", sans-serif;
 	}
 	.embeddedServiceHelpButton .helpButton .uiButton:focus {
-		outline: 1px solid #005290;
+		outline: 1px solid #0063B8;
 	}
-</style>
-
-<style type='text/css'>
-	.embeddedServiceHelpButton .helpButton .uiButton {
-		background-color: #005290;
-		font-family: "Arial", sans-serif;
+	.embeddedServiceLiveAgentStateChatItem .nameAndTimeContent {
+		color: #7E7E7E !important;
 	}
-	.embeddedServiceHelpButton .helpButton .uiButton:focus {
-		outline: 1px solid #005290;
+	.embeddedServiceLiveAgentStateChatInputFooter.chasitorInputWrapper {
+		background-color: #f5f6f7 !important;
 	}
 </style>
 
@@ -69,6 +65,9 @@
 		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
 		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
 		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+
+		embedded_svc.settings.avatarImgURL = "https://dcsf--dit1--c.visualforce.com/resource/1622115325000/Dell_Chat_Bot_Avatar?";
+		embedded_svc.settings.chatbotAvatarImgURL = "https://dcsf--dit1--c.visualforce.com/resource/1622115382000/Dell_Chat_Agent_Avatar?";
 
 		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 		embedded_svc.settings.entryFeature = 'LiveAgent';
