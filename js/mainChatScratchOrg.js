@@ -37,7 +37,7 @@ function triggerSnapin(snapInObject) {
 
 function initiateChatBot(snapInObject) {
     try{
-        console.log('Testing Caching');
+        console.log(snapInObject);
         var initESW = function (gslbBaseURL) {
             
             var css = '.embeddedServiceHelpButton .helpButton .uiButton {'+
