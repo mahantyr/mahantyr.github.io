@@ -16,8 +16,6 @@ var chatBotObject = {
 function triggerSnapin(snapInObject) {
 
     try {
-        
-        console.log('triggerSnapin');
         snapInObject.chatBotInitURL = chatBotObject.chatBotInitURL;
         snapInObject.chatBotPublicSites = chatBotObject.chatBotPublicSites;
         snapInObject.organizationId = chatBotObject.organizationId;
@@ -39,8 +37,7 @@ function triggerSnapin(snapInObject) {
 
 function initiateChatBot(snapInObject) {
     try{
-        console.log('initiateChatBot');
-        console.log(JSON.stringify(snapInObject));
+        console.log('Testing Caching');
         var initESW = function (gslbBaseURL) {
             
             var css = '.embeddedServiceHelpButton .helpButton .uiButton {'+
@@ -73,29 +70,38 @@ function initiateChatBot(snapInObject) {
 
             embedded_svc.settings.extraPrechatFormDetails = [
                 {
-				"label":"Language Code", 
-				"value":snapInObject.languageCode,
-				"transcriptFields": ["Language_Code__c"]
+                    "label":"First Name",
+                    "value":snapInObject.firstName,
+                    "transcriptFields": ["FirstName__c"]
 				},{
-				"label":"Selection Type", 
-				"value":snapInObject.seletionType,
-				"transcriptFields": ["Selection_Type__c"]
+                    "label":"Last Name",
+                    "value":snapInObject.lastName,
+                    "transcriptFields": ["LastName__c"]
 				},{
-				"label":"Channel", 
-				"value":snapInObject.channel,
-                "transcriptFields": ["Channel__c"]
+                    "label":"Email",
+                    "value":snapInObject.emailAddress,
+                    "transcriptFields": ["Email__c"]
 				},{
-				"label":"Country", 
-				"value":snapInObject.countryCode,
-				"transcriptFields": ["Country__c"]
+                    "label":"Language Code",
+                    "value":snapInObject.languageCode,
+                    "transcriptFields": ["Language_Code__c"]
 				},{
-                "label":"Origin", 
-                "value":snapInObject.origin,
-                "transcriptFields": ["Origin__c"]
-                }];
-
-                
-
+                    "label":"Selection Type",
+                    "value":snapInObject.seletionType,
+                    "transcriptFields": ["Selection_Type__c"]
+				},{
+                    "label":"Channel",
+                    "value":snapInObject.channel,
+                    "transcriptFields": ["Channel__c"]
+				},{
+                    "label":"Origin",
+                    "value":snapInObject.origin,
+                    "transcriptFields": ["Origin__c"]
+                },{
+                    "label":"Country", 
+                    "value":snapInObject.countryCode,
+                    "transcriptFields": ["Country__c"]
+				}];
                 embedded_svc.init(
                     snapInObject.chatBotInitURL,
                     snapInObject.chatBotPublicSites, 
@@ -111,7 +117,6 @@ function initiateChatBot(snapInObject) {
                         isOfflineSupportEnabled: false
                 });
         };
-
         if (!window.embedded_svc) {
             var s = document.createElement('script');
             s.setAttribute('src', snapInObject.snapInJs);
