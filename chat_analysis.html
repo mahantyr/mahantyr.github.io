@@ -23,36 +23,7 @@
             </a>
             <span id="selectLanguage" style="float: right; display: block; margin-right:5px">
                 <span style="background: #6c757d;color: #fff;width: 38px;height: 28px;padding: 2px 11px;border-radius: .25rem 0 0 .25rem;"><i class="fa fa-globe"></i></span>
-                <!-- <select id="selectLanguageOption" style="margin-left: -5px;" onchange="startChat()">
-                    <option value="en">en</option>
-                    <option>en-US</option>
-                    <option>de</option> 
-                    <option>pt</option>
-                    <option>cn</option>
-                    <option>zh</option>
-                    <option>zh_CN</option>
-                    <option>zh_TW</option>
-                    <option>es</option>
-                    <option>ko</option>
-                    <option>ja</option>       
-                    <option>fr</option>
-                    <option>da</option>
-                    <option>nl_Nl</option>   
-                    <option>nl-NL</option> 
-                    <option>nl</option> 
-                    <option>en_US</option> 
-                    <option>fi</option> 
-                    <option>it</option> 
-                    <option>no</option> 
-                    <option>pt_BR</option>
-                    <option>pt-BR</option>  
-                    <option>ru</option> 
-                    <option>es_MX</option> 
-                    <option>sv</option>
-                    <option>th</option>
-                    <option>pl</option>
-                    <option>sk</option>
-                </select> -->
+                
                 <select id="selectLanguageCode" style="margin-left: -5px;">
                     <option value="en">en</option>
                     <option>fr</option>
@@ -204,43 +175,42 @@
                         }
                     ];
                     
-                    embedded_svc.settings.avatarImgURL = "https://ability-velocity-8976-dev-ed--c.visualforce.com/resource/1622088894000/Dell_Snapin_Agent_Avatar?";
-		            embedded_svc.settings.chatbotAvatarImgURL = "https://ability-velocity-8976-dev-ed--c.visualforce.com/resource/1622088948000/Dell_Snapin_Bot_Avatar?";
+                    embedded_svc.settings.avatarImgURL = "https://sandbox-chatsample-developer-edition.cs40.force.com/liveAgentSetupFlow/Dell_Snapin_Agent_Avatar?";
+		            embedded_svc.settings.chatbotAvatarImgURL = "https://sandbox-chatsample-developer-edition.cs40.force.com/liveAgentSetupFlow/Dell_Snapin_Bot_Avatar?";
 
             
                     embedded_svc.settings.enabledFeatures = ['LiveAgent'];
                     embedded_svc.settings.entryFeature = 'LiveAgent';
             
                     embedded_svc.init(
-                        'https://ability-velocity-8976-dev-ed.cs92.my.salesforce.com',
-                        'https://sandbox-sample-chat-developer-edition.cs92.force.com/liveAgentSetupFlow',
+                        'https://java-efficiency-6455-dev-ed.cs40.my.salesforce.com',
+                        'https://sandbox-chatsample-developer-edition.cs40.force.com/liveAgentSetupFlow',
                         gslbBaseURL,
-                        '00D3F000000RUNe',
+                        '00D54000000R78s',
                         'DELL_CONNECT_DEFAULT',
                         {
-                            baseLiveAgentContentURL: 'https://c.la2-c1cs-ord.salesforceliveagent.com/content',
-                            deploymentId: '5723F000000CkSh',
-                            buttonId: '5733F000000ClGu',
-                            baseLiveAgentURL: 'https://d.la2-c1cs-ord.salesforceliveagent.com/chat',
-                            eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I3F0000004CkFUAU_179898ae8cd',
+                            baseLiveAgentContentURL: 'https://c.la2-c1cs-ph2.salesforceliveagent.com/content',
+                            deploymentId: '572540000008TT3',
+                            buttonId: '573540000008Tug',
+                            baseLiveAgentURL: 'https://d.la2-c1cs-ph2.salesforceliveagent.com/chat',
+                            eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I540000004CXjEAM_179b20b6726',
                             isOfflineSupportEnabled: false
                         }
-		);
-	};
+                    );
+	            };
 
-	if (!window.embedded_svc) {
-		var s = document.createElement('script');
-		s.setAttribute('src', 'https://ability-velocity-8976-dev-ed.cs92.my.salesforce.com/embeddedservice/5.0/esw.min.js');
-		s.onload = function() {
-			initESW(null);
-		};
-		document.body.appendChild(s);
-	} else {
-		initESW('https://service.force.com');
-	}
-            }
+                if (!window.embedded_svc) {
+                    var s = document.createElement('script');
+                    s.setAttribute('src', 'https://java-efficiency-6455-dev-ed.cs40.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+                    s.onload = function() {
+                        initESW(null);
+                    };
+                    document.body.appendChild(s);
+                } else {
+                    initESW('https://service.force.com');
+                }
             
-        </script>
+    </script>
         
     </body>
 </html>
