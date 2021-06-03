@@ -55,7 +55,10 @@ function initiateChatBot(snapInObject) {
             'color: #7E7E7E !important;}'+
 
             '.embeddedServiceLiveAgentStateChatInputFooter.chasitorInputWrapper {'+
-            'background-color: #f5f6f7 !important;}';
+            'background-color: #f5f6f7 !important;}'+
+            
+            '.embeddedServiceLiveAgentStateChatPlaintextMessageDefaultUI.agent.plaintextContent{'+
+                'background: #f0f0f0 !important;}';
 
             style = document.createElement('style');
             style.type = 'text/css';

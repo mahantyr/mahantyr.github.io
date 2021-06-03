@@ -1,34 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <head>
-          
-        <meta charset="utf-8" />
-        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
-        <title>DCSF Chat</title>
-        <meta name="viewport" content= "width=device-width, initial-scale=1.0"> 
-        <!-- <link rel="stylesheet" media="screen" type="text/css" href="blog.css"> -->
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
-        <!-- <script src="../../../node_modules/jquery/dist/jquery.min.js"></script> -->
-        <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" media="screen" href="chatanalysis.css" />
-        
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-        <script src="main.js"></script> -->
-        <style type='text/css'>
-                .embeddedServiceHelpButton .helpButton .uiButton { background-color: #005290; font-family: "Salesforce Sans", sans-serif; }
-                .embeddedServiceHelpButton .helpButton .uiButton:focus { outline: 1px solid #005290; }
-                @font-face {
-                font-family: 'Salesforce Sans';
-                src: url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.woff') format('woff'),
-        url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.ttf') format('truetype');
-                }
-        </style> 
-    </head>
+		<title>DCSF Chat</title>
+		<meta name="viewport" content= "width=device-width, initial-scale=1.0"> 
+		<link rel="stylesheet" type="text/css" media="screen" href="chatanalysis.css" />
+	</head>
 <body>
 
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic|Source+Code+Pro:400,700' rel='stylesheet' type='text/css'>
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">
             <img src="assets/Dell_Logo.jpg" class="d-inline-block align-top" alt="">
@@ -42,7 +20,7 @@
 	<!-- <h2>DCSF Prod Development</h2> -->
 
 	<p class="quote">
-		This page is designed to host the Sample Bot created in Org
+		This page is designed to host the Bot created in Org
 	</p>
 
 	
@@ -51,11 +29,20 @@
 
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
-		background-color: #005290;
+		background-color: #0063B8;
 		font-family: "Arial", sans-serif;
 	}
 	.embeddedServiceHelpButton .helpButton .uiButton:focus {
-		outline: 1px solid #005290;
+		outline: 1px solid #0063B8;
+	}
+	.embeddedServiceLiveAgentStateChatItem .nameAndTimeContent {
+		color: #7E7E7E !important;
+	}
+	.embeddedServiceLiveAgentStateChatInputFooter.chasitorInputWrapper {
+		background-color: #f5f6f7 !important;
+	}
+	.embeddedServiceLiveAgentStateChatPlaintextMessageDefaultUI.agent.plaintextContent{
+		background: #f0f0f0 !important;
 	}
 </style>
 
@@ -84,13 +71,16 @@
 		embedded_svc.settings.entryFeature = 'LiveAgent';
 
         embedded_svc.settings.extraPrechatFormDetails = [{
-            "label":"First Name",  
+            "label":"First Name",
+			"value":"",
             "transcriptFields": ["FirstName__c"]
             },{
             "label":"Last Name", 
+			"value":"",
             "transcriptFields": ["LastName__c"]
             },{
-            "label":"Email", 
+            "label":"Email",
+			"value":"",
             "transcriptFields": ["Email__c"]
             },{
 			"label":"Language Code", 
@@ -98,29 +88,33 @@
 			"transcriptFields": ["Language_Code__c"]
 			},{
 			"label":"Selection Type", 
-			"value":"Gaming Alienware and G Series Laptops & Desktops",
+			"value":"",
 			"transcriptFields": ["Selection_Type__c"]
 			},{
 			"label":"Channel", 
-			"value":"Home",
+			"value":"",
 			"transcriptFields": ["Channel__c"]
 			},{
 			"label":"Country", 
-			"value":"United States",
+			"value":"us",
 			"transcriptFields": ["Country__c"]
+			},{
+			"label":"Origin", 
+			"value":"Sales",
+			"transcriptFields": ["Origin__c"]
 			}
-        ];
+		];
 
 		embedded_svc.init(
 			'https://dcsf.my.salesforce.com',
 			'https://dellicm-dell-na174.secure.force.com/liveAgentSetupFlow',
 			gslbBaseURL,
 			'00D6g000000GNab',
-			'Sales_Chat_Bot',
+			'DELL_CONNECT_DEFAULT',
 			{
 				baseLiveAgentContentURL: 'https://c.la1-c2-ia5.salesforceliveagent.com/content',
 				deploymentId: '5726g0000005fmi',
-				buttonId: '5736g0000005hQ2',
+				buttonId: '5736g0000005heM',
 				baseLiveAgentURL: 'https://d.la1-c2-ia5.salesforceliveagent.com/chat',
 				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I6g000000DbsiEAC_178d45ba203',
 				isOfflineSupportEnabled: false
