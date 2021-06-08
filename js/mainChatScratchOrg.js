@@ -56,7 +56,7 @@ function initiateChatBot(snapInObject) {
 
             '.embeddedServiceLiveAgentStateChatInputFooter.chasitorInputWrapper {'+
             'background-color: #f5f6f7 !important;}'+
-            
+
             '.embeddedServiceLiveAgentStateChatPlaintextMessageDefaultUI.agent.plaintextContent{'+
                 'background: #f0f0f0 !important;}';
 
@@ -73,7 +73,7 @@ function initiateChatBot(snapInObject) {
 
 
             embedded_svc.settings.language = snapInObject.languageCode;
-            embedded_svc.settings.displayHelpButton = true;
+            embedded_svc.settings.displayHelpButton = false;
             embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 			embedded_svc.settings.entryFeature = 'LiveAgent';
 
