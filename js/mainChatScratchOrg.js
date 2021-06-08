@@ -73,7 +73,7 @@ function initiateChatBot(snapInObject) {
 
 
             embedded_svc.settings.language = snapInObject.languageCode;
-            embedded_svc.settings.displayHelpButton = false;
+            embedded_svc.settings.displayHelpButton = true;
             embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 			embedded_svc.settings.entryFeature = 'LiveAgent';
 
@@ -142,7 +142,6 @@ function initiateChatBot(snapInObject) {
             initESW(snapInObject.serviceForceURL);
             
         }
-        embedded_svc.bootstrapEmbeddedService();
     }
     catch (e) {
         console.log("Error in: " + e);
