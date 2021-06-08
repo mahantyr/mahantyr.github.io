@@ -142,6 +142,7 @@ function initiateChatBot(snapInObject) {
             initESW(snapInObject.serviceForceURL);
             
         }
+        embedded_svc.bootstrapEmbeddedService();
     }
     catch (e) {
         console.log("Error in: " + e);
