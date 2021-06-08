@@ -35,6 +35,21 @@ function triggerSnapin(snapInObject) {
     }
 }
 
+function languageMapping(lang, countryCode){
+    let language = lang.toLowerCase();
+    switch (language){
+        case 'zh':
+            if (countryCode == 'cn'){
+                language = 'zh_cn';
+            }
+            break;
+        default:
+            break;
+    }
+    return language;
+        
+}
+
 function initiateChatBot(snapInObject) {
     try{
         console.log(snapInObject);
@@ -71,8 +86,14 @@ function initiateChatBot(snapInObject) {
             body = document.body || document.getElementsByTagName('body')[0],
             body.appendChild(style);
 
+            if ("languageCode" in snapInObject){
+                languageAfterMapping = languageMapping(snapInObject.languageCode, snapInObject.countryCode);
+            }
+            else{
+                languageAfterMapping = "en";
+            }
 
-            embedded_svc.settings.language = snapInObject.languageCode;
+            embedded_svc.settings.language = languageAfterMapping;
             embedded_svc.settings.displayHelpButton = true;
             embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 			embedded_svc.settings.entryFeature = 'LiveAgent';
@@ -95,7 +116,7 @@ function initiateChatBot(snapInObject) {
                     "transcriptFields": ["Email__c"]
 				},{
                     "label":"Language Code",
-                    "value":snapInObject.languageCode,
+                    "value":languageAfterMapping,
                     "transcriptFields": ["Language_Code__c"]
 				},{
                     "label":"Selection Type",
