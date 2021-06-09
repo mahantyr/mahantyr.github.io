@@ -88,6 +88,7 @@ function initiateChatBot(snapInObject) {
 
             if ("languageCode" in snapInObject){
                 languageAfterMapping = languageMapping(snapInObject.languageCode, snapInObject.countryCode);
+                console.log(languageAfterMapping);
             }
             else{
                 languageAfterMapping = "en";
@@ -149,6 +150,7 @@ function initiateChatBot(snapInObject) {
                         eswLiveAgentDevName: snapInObject.LiveAgentDevName,
                         isOfflineSupportEnabled: false
                 });
+                console.log(embedded_svc);
         };
         if (!window.embedded_svc) {
             var s = document.createElement('script');
@@ -160,9 +162,9 @@ function initiateChatBot(snapInObject) {
             document.body.appendChild(s);
         } else {
             console.log('window.embedded_svc.else');
-            initESW(snapInObject.serviceForceURL);
-            
+            initESW(snapInObject.serviceForceURL);    
         }
+        
     }
     catch (e) {
         console.log("Error in: " + e);
