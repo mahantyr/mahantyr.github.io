@@ -43,6 +43,11 @@ function languageMapping(lang, countryCode){
                 language = 'zh_cn';
             }
             break;
+        case 'pt':
+            if (countryCode == 'br'){
+                language = 'pt_br';
+            }
+            break;
         default:
             break;
     }
