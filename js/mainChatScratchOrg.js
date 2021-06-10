@@ -122,7 +122,7 @@ function initiateChatBot(snapInObject) {
                     "transcriptFields": ["Email__c"]
 				},{
                     "label":"Language Code",
-                    "value":languageAfterMapping,
+                    "value":snapInObject.languageCode,
                     "transcriptFields": ["Language_Code__c"]
 				},{
                     "label":"Selection Type",
