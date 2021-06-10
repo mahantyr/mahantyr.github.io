@@ -40,9 +40,9 @@
 
 		async function startChat(){
 			var snapInObject = {
-				firstName:"Rahul",
-				lastName:"Mahanty",
-				emailAddress:"rahul_mahanty@dell.com",
+				firstName:"",
+				lastName:"",
+				emailAddress:"",
 				languageCode:"en",
 				seletionType:"",
 				channel:"",
@@ -52,8 +52,7 @@
 			
 			console.log('Inside startChat');
 			
-			await loadScript('https://moxiepoc-dell.cs14.force.com/resource/mainChatMini/mainChatMini/mainChatMini.js');
-			//await loadScript('../js/mainChat.js');
+			await loadScript('https://sit1-dellicm-dell-na174.cs34.force.com/liveAgentSetupFlow/resource/DellSalesEmbeddedsvc/DellSalesEmbeddedsvc/DellSalesEmbeddedsvc.js');
 			triggerSnapin(snapInObject);
 		}
 		
