@@ -94,7 +94,6 @@ function initiateChatBot(snapInObject) {
                 languageAfterMapping = "en";
             }
 
-            embedded_svc.settings.language = languageAfterMapping;
             embedded_svc.settings.displayHelpButton = true;
             embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 			embedded_svc.settings.entryFeature = 'LiveAgent';
@@ -102,6 +101,7 @@ function initiateChatBot(snapInObject) {
             embedded_svc.settings.avatarImgURL = snapInObject.chatBotPublicSites + '/resource/Dell_Chat_Agent_Avatar';
 		    embedded_svc.settings.chatbotAvatarImgURL = snapInObject.chatBotPublicSites + '/resource/Dell_Chat_Bot_Avatar';
 
+            embedded_svc.settings.language = 'zh_CN';
             embedded_svc.settings.extraPrechatFormDetails = [
                 {
                     "label":"First Name",
