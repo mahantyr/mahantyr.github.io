@@ -40,12 +40,7 @@ function languageMapping(lang, countryCode){
     switch (language){
         case 'zh':
             if (countryCode == 'cn'){
-                language = 'zh_cn';
-            }
-            break;
-        case 'pt':
-            if (countryCode == 'br'){
-                language = 'pt_br';
+                language = 'zh_CN';
             }
             break;
         default:
