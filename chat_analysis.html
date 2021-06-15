@@ -1,216 +1,132 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <head>
-      
-    <meta charset="utf-8" />
-    
-    <title>Analysis</title>
-    <meta name="viewport" content= "width=device-width, initial-scale=1.0"> 
-    
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
-    
-    <!-- <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" /> -->
-    <link rel="stylesheet" type="text/css" media="screen" href="chatanalysis.css" />
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+	<title>Scratch Org</title>
+	<meta name="viewport" content= "width=device-width, initial-scale=1.0"> 
+	<link rel="stylesheet" type="text/css" media="screen" href="../chatanalysis.css" />
 </head>
-    <body>
-        <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" href="#">
-                <img src="assets/Dell_Logo.jpg" class="d-inline-block align-top" alt="">
-            </a>
-            <span id="selectLanguage" style="float: right; display: block; margin-right:5px">
-                <span style="background: #6c757d;color: #fff;width: 38px;height: 28px;padding: 2px 11px;border-radius: .25rem 0 0 .25rem;"><i class="fa fa-globe"></i></span>
-                
-                <select id="selectLanguageCode" style="margin-left: -5px;">
-                    <option value="en">en</option>
-                    <option>fr</option>
-                    <option>de</option> 
-                    <option>zh</option>
-                    <option>es</option>
-                    <option>ja</option>
-                    <option>nl</option>
-                    <option>pt</option>
-                    <option>sv</option>
-                </select>
-                <select id="selectCountryCode" style="margin-left: -5px;">
-                    <option value="au">au</option>
-                    <option>ca</option> 
-                    <option>de</option>
-                    <option>cn</option>
-                    <option>hk</option>
-                    <option>ch</option>
-                    <option>es</option>
-                    <option>fr</option>
-                    <option>ie</option>
-                    <option>in</option>
-                    <option>jp</option>
-                    <option>my</option>
-                    <option>nl</option>
-                    <option>nz</option>
-                    <option>br</option>
-                    <option>ai</option>
-                    <option>ag</option>
-                    <option>aw</option>
-                    <option>bs</option>
-                    <option>bb</option>
-                    <option>bz</option>
-                    <option>bm</option>
-                    <option>vg</option>
-                    <option>cr</option>
-                    <option>dm</option>
-                    <option>do</option>
-                    <option>sv</option>
-                    <option>gd</option>
-                    <option>gt</option>
-                    <option>gy</option>
-                    <option>ht</option>
-                    <option>hn</option>
-                    <option>ky</option>
-                    <option>jm</option>
-                    <option>an</option>
-                    <option>ni</option>
-                    <option>pa</option>
-                    <option>pr</option>
-                    <option>kn</option>
-                    <option>vc</option>
-                    <option>lc</option>
-                    <option>sr</option>
-                    <option>tt</option>
-                    <option>tc</option>
-                    <option>vi</option>
-                    <option>se</option>
-                    <option>sg</option>
-                    <option>uk</option>
-                    <option>us</option>
-                    <option>ca</option>
-                </select>
-            </span>
-        </nav>
-        <div class="navigationLink" style="text-align: center;">
-            <dev style="color:#fff; font-size: 20px;">Welcome to SFDC Chat Analysis</dev>
-        </div>    
-        <div id="mySidepanel" class="sidepanel">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Clients</a>
-            <a href="#">Contact</a>
-        </div>
-          
-        <button class="openbtn" onclick="startChat()"> Chat or Call </button>
-        <script>
-            function startChat(){
-                
-                //Get all required form details in object
-                var lang = document.getElementById("selectLanguageCode");
-                var country = document.getElementById("selectCountryCode");
-                var selectedLanguageDropdown = lang.options[lang.selectedIndex].value;
-                var selectedCountryDropdown = country.options[country.selectedIndex].value;
-                triggerSnapin(selectedLanguageDropdown, selectedCountryDropdown)
-            }
+<body>
 
-            function openNav() {
-                document.getElementById("mySidepanel").style.width = "250px";
-            }
-            
-            
-            function closeNav() {
-                document.getElementById("mySidepanel").style.width = "0";
-            }
+	
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="../assets/Dell_Logo.jpg" class="d-inline-block align-top" alt="">
+        </a>
+		<span id="selectLanguage" style="float: right; display: block; margin-right:5px">
+			<span style="background: #6c757d;color: #fff;width: 38px;height: 28px;padding: 2px 11px;border-radius: .25rem 0 0 .25rem;"><i class="fa fa-globe"></i></span>
+			<select id="selectLanguageCode" style="margin-left: -5px;">
+				<option value="en">en</option>
+				<option>fr</option>
+				<option>de</option> 
+				<option>zh</option>
+				<option>es</option>
+				<option>ja</option>
+				<option>nl</option>
+				<option>pt</option>
+				<option>sv</option>
+			</select>
+			<select id="selectCountryCode" style="margin-left: -5px;">
+				<option>au</option>
+				<option>ca</option> 
+				<option>de</option>
+				<option>cn</option>
+				<option>hk</option>
+				<option>ch</option>
+				<option>es</option>
+				<option>fr</option>
+				<option>ie</option>
+				<option>in</option>
+				<option>jp</option>
+				<option>my</option>
+				<option>nl</option>
+				<option>nz</option>
+				<option>br</option>
+				<option>ai</option>
+				<option>ag</option>
+				<option>aw</option>
+				<option>bs</option>
+				<option>bb</option>
+				<option>bz</option>
+				<option>bm</option>
+				<option>vg</option>
+				<option>cr</option>
+				<option>dm</option>
+				<option>do</option>
+				<option>sv</option>
+				<option>gd</option>
+				<option>gt</option>
+				<option>gy</option>
+				<option>ht</option>
+				<option>hn</option>
+				<option>ky</option>
+				<option>jm</option>
+				<option>an</option>
+				<option>ni</option>
+				<option>pa</option>
+				<option>pr</option>
+				<option>kn</option>
+				<option>vc</option>
+				<option>lc</option>
+				<option>sr</option>
+				<option>tt</option>
+				<option>tc</option>
+				<option>vi</option>
+				<option>se</option>
+				<option>sg</option>
+				<option>uk</option>
+				<option value="us">us</option>
+				<option>ca</option>
+			</select>
+		</span>
+    </nav>
+    <div class="navigationLink" style="text-align: center;">
+        <dev style="color:#fff; font-size: 16px;">DCSF Scratch Org Development</dev>
+    </div>  
+	<div class="post">
+		<p class="quote">
+			This page is designed to host the Sample Bot created in Org
+		</p>
+		<hr>
+	</div>
+	<button class="openbtn" onclick="startChat()"> Chat or Call </button>
 
-            
-        </script>
-        <style type='text/css'>
-            .embeddedServiceHelpButton .helpButton .uiButton {
-                background-color: #0063B8;
-                font-family: "Arial", sans-serif;
-            }
-            .embeddedServiceHelpButton .helpButton .uiButton:focus {
-                outline: 1px solid #0063B8;
-            }
-            .embeddedServiceLiveAgentStateChatItem .nameAndTimeContent {
-                color: #7E7E7E !important;
-            }
-            .embeddedServiceLiveAgentStateChatInputFooter.chasitorInputWrapper {
-                background-color: #f5f6f7 !important;
-            }
-               
-            /** Hide the queue position unless waiting for chat **/
-                /* #liveAgentClientChat.liveAgentStateWaiting #liveAgentQueuePosition { display: inline; }
-                #liveAgentQueuePosition { display: none; } */
-        
-        </style>
-        
-        <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
-        <script type='text/javascript'>
-            function triggerSnapin(language, country) {
-                var initESW = function(gslbBaseURL) {
-                    embedded_svc.settings.displayHelpButton = true; //Or false
-                    //embedded_svc.settings.language = language; 
-                    
-                   
-                    embedded_svc.settings.extraPrechatFormDetails = [{
-                        "label":"Language Code", 
-                        "value":language,
-                        "transcriptFields": ["Language_Code__c"]
-                        },{
-                        "label":"Selection Type", 
-                        "value":"",
-                        "transcriptFields": ["Selection_Type__c"]
-                        },{
-                        "label":"Channel", 
-                        "value":"",
-                        "transcriptFields": ["Channel__c"]
-                        },{
-                        "label":"", 
-                        "value":country,
-                        "transcriptFields": ["Country__c"]
-                        },{
-                            "label":"Origin", 
-                            "value":"Sales",
-                            "transcriptFields": ["Origin__c"]
-                        }
-                    ];
-                    
-                    embedded_svc.settings.avatarImgURL = "https://sandbox-chatsample-developer-edition.cs40.force.com/liveAgentSetupFlow/Dell_Snapin_Agent_Avatar?";
-		            embedded_svc.settings.chatbotAvatarImgURL = "https://sandbox-chatsample-developer-edition.cs40.force.com/liveAgentSetupFlow/Dell_Snapin_Bot_Avatar?";
+	
+	<script type='text/javascript'>
+		async function loadScript(src) {
+			return new Promise(function (resolve, reject) {
+				var s;
+				s = document.createElement('script');
+				s.src = src+ '?v=' + Date.now();
+				s.onload = resolve;
+				s.onerror = reject;
+				s.defer = true;
+				document.head.appendChild(s);
+			});
+		}
 
-            
-                    embedded_svc.settings.enabledFeatures = ['LiveAgent'];
-                    embedded_svc.settings.entryFeature = 'LiveAgent';
-            
-                    embedded_svc.init(
-                        'https://java-efficiency-6455-dev-ed.cs40.my.salesforce.com',
-                        'https://sandbox-chatsample-developer-edition.cs40.force.com/liveAgentSetupFlow',
-                        gslbBaseURL,
-                        '00D54000000R78s',
-                        'DELL_CONNECT_DEFAULT',
-                        {
-                            baseLiveAgentContentURL: 'https://c.la2-c1cs-ph2.salesforceliveagent.com/content',
-                            deploymentId: '572540000008TT3',
-                            buttonId: '573540000008Tug',
-                            baseLiveAgentURL: 'https://d.la2-c1cs-ph2.salesforceliveagent.com/chat',
-                            eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I540000004CXjEAM_179b20b6726',
-                            isOfflineSupportEnabled: false
-                        }
-                    );
-	            };
-
-                if (!window.embedded_svc) {
-                    var s = document.createElement('script');
-                    s.setAttribute('src', 'https://java-efficiency-6455-dev-ed.cs40.my.salesforce.com/embeddedservice/5.0/esw.min.js');
-                    s.onload = function() {
-                        initESW(null);
-                    };
-                    document.body.appendChild(s);
-                } else {
-                    initESW('https://service.force.com');
-                }
-            
-    </script>
-        
-    </body>
+		async function startChat(){
+			var lang = document.getElementById("selectLanguageCode");
+            var country = document.getElementById("selectCountryCode");
+            var selectedLanguageDropdown = lang.options[lang.selectedIndex].value;
+            var selectedCountryDropdown = country.options[country.selectedIndex].value;
+			console.log('Selected',selectedCountryDropdown,' ',selectedLanguageDropdown);
+			var snapInObject = {
+				firstName:"",
+				lastName:"",
+				emailAddress:"",
+				languageCode:selectedLanguageDropdown,
+				seletionType:"",
+				channel:"",
+				countryCode:selectedCountryDropdown,
+				origin:"sales"
+			};
+			console.log('Inside startChat');
+			
+			await loadScript('../js/chat_analysis.js');
+			triggerSnapin(snapInObject);
+			
+		}
+		
+	</script>
+</body>
 </html>
