@@ -110,7 +110,7 @@
             var selectedLanguageDropdown = lang.options[lang.selectedIndex].value;
             var selectedCountryDropdown = country.options[country.selectedIndex].value;
 			console.log('Selected',selectedCountryDropdown,' ',selectedLanguageDropdown);
-			var snapInObject = {
+			/*var snapInObject = {
 				firstName:"",
 				lastName:"",
 				emailAddress:"",
@@ -119,6 +119,12 @@
 				channel:"",
 				countryCode:selectedCountryDropdown,
 				origin:"sales"
+			};*/
+			var snapInObject = {
+				name:"",
+				emailAddress:"",
+				languageCode:selectedLanguageDropdown,
+				countryCode:selectedCountryDropdown
 			};
 			console.log('Inside startChat');
 			
