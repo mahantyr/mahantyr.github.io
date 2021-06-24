@@ -62,7 +62,7 @@ function languageMapping(lang, countryCode){
         
 }
 
-var initESW = function (gslbBaseURL) {
+var initESW = function (gslbBaseURL, snapInObject) {
             
     var css = '.embeddedServiceHelpButton .helpButton .uiButton {'+
     'background-color: #0063B8;'+
@@ -167,13 +167,13 @@ function initiateChatBot(snapInObject) {
             var s = document.createElement('script');
             s.setAttribute('src', snapInObject.snapInJs);
             s.onload = function () {
-                initESW(null);
+                initESW(null, snapInObject);
                 console.log('window.embedded_svc');
             };
             document.body.appendChild(s);
         } else {
             console.log('window.embedded_svc.else');
-            initESW(snapInObject.serviceForceURL);    
+            initESW(snapInObject.serviceForceURL, snapInObject);    
         }
         
     }
