@@ -170,14 +170,13 @@ function initiateChatBot(snapInObject) {
             s.onload = function () {
                 initESW(null, snapInObject);
                 console.log('window.embedded_svc');
-                embedded_svc.bootstrapEmbeddedService();
             };
             document.body.appendChild(s);
         } else {
             console.log('window.embedded_svc.else');
             initESW(snapInObject.serviceForceURL, snapInObject);    
         }
-        
+        embedded_svc.bootstrapEmbeddedService();
     }
     catch (e) {
         console.log("Error in: " + e);
