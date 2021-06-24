@@ -155,7 +155,7 @@ var initESW = function (gslbBaseURL, snapInObject) {
                 eswLiveAgentDevName: snapInObject.LiveAgentDevName,
                 isOfflineSupportEnabled: false
         });
-        // eleExist('.helpButtonEnabled #helpButtonSpan > .message', chatClick);
+        eleExist('.helpButtonEnabled #helpButtonSpan > .message', chatClick);
         
         console.log(embedded_svc);
 };
@@ -176,7 +176,7 @@ function initiateChatBot(snapInObject) {
             console.log('window.embedded_svc.else');
             initESW(snapInObject.serviceForceURL, snapInObject);    
         }
-        embedded_svc.bootstrapEmbeddedService();
+        
     }
     catch (e) {
         console.log("Error in: " + e);
