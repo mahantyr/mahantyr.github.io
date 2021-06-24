@@ -195,7 +195,7 @@ function initiateChatBot(snapInObject) {
 //         console.log("Error in:" + e);
 //     }
 // }
-function chatCareClick(eleSelector, findingEle) {
+function chatClick(eleSelector, findingEle) {
     try {
         if (document.querySelector(eleSelector)) {
             document.querySelector(eleSelector).click();
