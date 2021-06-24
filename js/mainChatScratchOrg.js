@@ -103,7 +103,7 @@ var initESW = function (gslbBaseURL, snapInObject) {
         languageAfterMapping = "en";
     }
 
-    embedded_svc.settings.displayHelpButton = true;
+    embedded_svc.settings.displayHelpButton = false;
     embedded_svc.settings.enabledFeatures = ['LiveAgent'];
     embedded_svc.settings.entryFeature = 'LiveAgent';
 
@@ -155,7 +155,8 @@ var initESW = function (gslbBaseURL, snapInObject) {
                 eswLiveAgentDevName: snapInObject.LiveAgentDevName,
                 isOfflineSupportEnabled: false
         });
-        eleExist('.helpButtonEnabled #helpButtonSpan > .message', chatClick);
+        // eleExist('.helpButtonEnabled #helpButtonSpan > .message', chatClick);
+        embedded_svc.bootstrapEmbeddedService();
         console.log(embedded_svc);
 };
 
