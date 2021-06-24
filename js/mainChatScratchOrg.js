@@ -156,7 +156,7 @@ var initESW = function (gslbBaseURL, snapInObject) {
                 isOfflineSupportEnabled: false
         });
         // eleExist('.helpButtonEnabled #helpButtonSpan > .message', chatClick);
-        embedded_svc.bootstrapEmbeddedService();
+        
         console.log(embedded_svc);
 };
 
@@ -170,6 +170,7 @@ function initiateChatBot(snapInObject) {
             s.onload = function () {
                 initESW(null, snapInObject);
                 console.log('window.embedded_svc');
+                embedded_svc.bootstrapEmbeddedService();
             };
             document.body.appendChild(s);
         } else {
