@@ -118,7 +118,8 @@
 			};
 			console.log('Inside startChat');
 			
-			await loadScript('https://sandbox-chatsample-developer-edition.cs40.force.com/liveAgentSetupFlow/resource/testJS/testJS/testJS.js');
+			//await loadScript('https://sandbox-chatsample-developer-edition.cs40.force.com/liveAgentSetupFlow/resource/testJS/testJS/testJS.js');
+			await loadScript('./js/mainChatScratchOrg.js');
 			triggerSnapin(snapInObject);
 			
 		}
