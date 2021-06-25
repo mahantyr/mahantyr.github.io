@@ -110,7 +110,7 @@
             var selectedLanguageDropdown = lang.options[lang.selectedIndex].value;
             var selectedCountryDropdown = country.options[country.selectedIndex].value;
 			console.log('Selected',selectedCountryDropdown,' ',selectedLanguageDropdown);
-			var snapInObject = {
+			/*var snapInObject = {
 				firstName:"",
 				lastName:"",
 				emailAddress:"",
@@ -119,13 +119,13 @@
 				channel:"",
 				countryCode:selectedCountryDropdown,
 				origin:"sales"
-			};
-			/*var snapInObject = {
+			};*/
+			var snapInObject = {
 				name:"",
 				emailAddress:"",
 				languageCode:selectedLanguageDropdown,
 				countryCode:selectedCountryDropdown
-			};*/
+			};
 			console.log('Inside startChat');
 			
 			//await loadScript('https://sit1-dellicm-dell-na174.cs34.force.com/liveAgentSetupFlow/resource/DellOutletEmbeddedsvc/DellOutletEmbeddedsvc/DellOutletEmbeddedsvc.js');
