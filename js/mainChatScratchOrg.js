@@ -36,10 +36,11 @@ function triggerSnapin(snapInObject) {
 
         var snapinExists = document.querySelector(".embeddedServiceSidebar");
 
-        var snapinAlreadyInitiated = document.getElementById("esw_storage_iframe");
-        if (!snapinAlreadyInitiated){
-            initiateChatBot(snapInObject);
-        }
+        // var snapinAlreadyInitiated = document.getElementById("esw_storage_iframe");
+        // if (!snapinAlreadyInitiated){
+        //     initiateChatBot(snapInObject);
+        // }
+        initiateChatBot(snapInObject);
         
     }
     catch (e) {
