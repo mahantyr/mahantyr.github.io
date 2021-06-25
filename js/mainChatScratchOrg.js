@@ -104,7 +104,7 @@ var initESW = function (gslbBaseURL, snapInObject) {
         languageAfterMapping = "en";
     }
 
-    embedded_svc.settings.displayHelpButton = false;
+    embedded_svc.settings.displayHelpButton = true;
     embedded_svc.settings.enabledFeatures = ['LiveAgent'];
     embedded_svc.settings.entryFeature = 'LiveAgent';
 
