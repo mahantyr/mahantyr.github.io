@@ -108,10 +108,8 @@ var initESW = function (gslbBaseURL, snapInObject) {
     embedded_svc.settings.enabledFeatures = ['LiveAgent'];
     embedded_svc.settings.entryFeature = 'LiveAgent';
 
-    embedded_svc.settings.disabledMinimizedText = 'Chat';
+    //embedded_svc.settings.disabledMinimizedText = 'Chat';
 
-    embedded_svc.settings.avatarImgURL = snapInObject.chatBotPublicSites + '/resource/Dell_Chat_Agent_Avatar';
-    embedded_svc.settings.chatbotAvatarImgURL = snapInObject.chatBotPublicSites + '/resource/Dell_Chat_Bot_Avatar';
 
     embedded_svc.settings.language = languageAfterMapping;
     embedded_svc.settings.extraPrechatFormDetails = [
