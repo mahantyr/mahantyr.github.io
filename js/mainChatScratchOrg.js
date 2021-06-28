@@ -47,11 +47,13 @@ function triggerSnapin(snapInObject) {
 
         var snapinExists = document.querySelector(".embeddedServiceSidebar");
 
-        // var snapinAlreadyInitiated = document.getElementById("esw_storage_iframe");
-        // if (!snapinAlreadyInitiated){
-        //     initiateChatBot(snapInObject);
-        // }
-        initiateChatBot(snapInObject);
+        var snapinAlreadyInitiated = document.getElementById("esw_storage_iframe");
+        if (!snapinAlreadyInitiated){
+            initiateChatBot(snapInObject);
+        }
+        else{
+            eleExist('.helpButtonEnabled #helpButtonSpan > .message', chatClick);
+        }
         
     }
     catch (e) {
