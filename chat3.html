@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test Page</title>
+	<meta name="viewport" content= "width=device-width, initial-scale=1.0"> 
+	<link rel="stylesheet" type="text/css" media="screen" href="../chatanalysis.css" />
+</head>
+<body>
+
+	
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="../assets/Dell_Logo.jpg" class="d-inline-block align-top" alt="">
+        </a>
+		<span id="selectLanguage" style="float: right; display: block; margin-right:5px">
+			<span style="background: #6c757d;color: #fff;width: 38px;height: 28px;padding: 2px 11px;border-radius: .25rem 0 0 .25rem;"><i class="fa fa-globe"></i></span>
+			<select id="selectLanguageCode" style="margin-left: -5px;">
+				<option value="en">en</option>
+				<option>fr</option>
+				<option>de</option> 
+				<option>zh</option>
+				<option>es</option>
+				<option>ja</option>
+				<option>nl</option>
+				<option>pt</option>
+				<option>sv</option>
+			</select>
+			<select id="selectCountryCode" style="margin-left: -5px;">
+				<option>au</option>
+				<option>ca</option> 
+				<option>de</option>
+				<option>cn</option>
+				<option>hk</option>
+				<option>ch</option>
+				<option>es</option>
+				<option>fr</option>
+				<option>ie</option>
+				<option>in</option>
+				<option>jp</option>
+				<option>my</option>
+				<option>nl</option>
+				<option>nz</option>
+				<option>br</option>
+				<option>ai</option>
+				<option>ag</option>
+				<option>aw</option>
+				<option>bs</option>
+				<option>bb</option>
+				<option>bz</option>
+				<option>bm</option>
+				<option>vg</option>
+				<option>cr</option>
+				<option>dm</option>
+				<option>do</option>
+				<option>sv</option>
+				<option>gd</option>
+				<option>gt</option>
+				<option>gy</option>
+				<option>ht</option>
+				<option>hn</option>
+				<option>ky</option>
+				<option>jm</option>
+				<option>an</option>
+				<option>ni</option>
+				<option>pa</option>
+				<option>pr</option>
+				<option>kn</option>
+				<option>vc</option>
+				<option>lc</option>
+				<option>sr</option>
+				<option>tt</option>
+				<option>tc</option>
+				<option>vi</option>
+				<option>se</option>
+				<option>sg</option>
+				<option>uk</option>
+				<option value="us">us</option>
+				<option>ca</option>
+			</select>
+		</span>
+    </nav>
+    <div class="navigationLink" style="text-align: center;">
+        <dev style="color:#fff; font-size: 16px;">DCSF Scratch Org Development: Navigated Page</dev>
+    </div>  
+	<div class="post">
+		<p class="quote">
+			You have navigated to this page from the main page
+		</p>
+		<p style="padding: 12px">
+			<a href="./chat.html">Main Page</a>
+		</p>
+		<hr>
+	</div>
+	<button class="openbtn" onclick="startChat()"> Chat or Call </button>
+
+	
+	<script type='text/javascript'>
+		async function loadScript(src) {
+			return new Promise(function (resolve, reject) {
+				var s;
+				s = document.createElement('script');
+				s.src = src+ '?v=' + Date.now();
+				s.onload = resolve;
+				s.onerror = reject;
+				s.defer = true;
+				document.head.appendChild(s);
+			});
+		}
+
+		async function startChat(){
+			var lang = document.getElementById("selectLanguageCode");
+            var country = document.getElementById("selectCountryCode");
+            var selectedLanguageDropdown = lang.options[lang.selectedIndex].value;
+            var selectedCountryDropdown = country.options[country.selectedIndex].value;
+			console.log('Selected',selectedCountryDropdown,' ',selectedLanguageDropdown);
+			var snapInObject = {
+				name:"",
+				emailAddress:"",
+				languageCode:selectedLanguageDropdown,
+				countryCode:selectedCountryDropdown
+			};
+			console.log('Inside startChat');
+			
+			//await loadScript('https://sandbox-chatsample-developer-edition.cs40.force.com/liveAgentSetupFlow/resource/testJS/testJS/testJS.js');
+			await loadScript('./js/mainChatScratchOrg.js');
+			triggerSnapin(snapInObject);
+			
+		}
+		
+	</script>
+</body>
+</html>

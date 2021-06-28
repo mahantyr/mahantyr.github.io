@@ -28,28 +28,60 @@ function triggerSnapin(snapInObject) {
         snapInObject.snapInJs = chatBotObject.snapInJs;
         snapInObject.componentName = chatBotObject.componentName;
 
-        initiateChatBot(snapInObject);
+        var snapinAlreadyInitiated = document.getElementById("esw_storage_iframe");
+        if (!snapinAlreadyInitiated){
+            initiateChatBot(snapInObject);
+        }
+        else{
+            eleExist('.helpButtonEnabled #helpButtonSpan > .message', chatClick);
+        }
+
+        // initiateChatBot(snapInObject);
     }
     catch (e) {
         console.log("Error in: " + e);
     }
 }
 
+function languageMapping(lang, countryCode){
+	let language = lang.toLowerCase();
+	switch (language){
+		case 'zh':
+			if (countryCode == 'cn'){
+				language = 'zh-CN';
+			}
+			break;
+		default:
+			break;
+	}
+	return language;
+
+}
+
 function initiateChatBot(snapInObject) {
     try{
-        console.log('Testing Caching');
+
         var initESW = function (gslbBaseURL) {
             
             var css = '.embeddedServiceHelpButton .helpButton .uiButton {'+
-            'background-color: #005290;'+
-            'font-family: "Arial", sans-serif;}'+
-        
-            '.embeddedServiceHelpButton .helpButton .uiButton:focus {'+
-            'outline: 1px solid #005290;}'+
+			'background-color: #0063B8;'+
+			'font-family: "Arial", sans-serif;}'+
 
-            '.embeddedServiceSidebar.layout-docked .dockableContainer,'+
-            ' .embeddedServiceSidebar.layout-float .dockableContainer '+
-            '{z-index: 100002 !important;}';
+			'.embeddedServiceHelpButton .helpButton .uiButton:focus {'+
+			'outline: 1px solid #0063B8;}'+
+
+			'.embeddedServiceSidebar.layout-docked .dockableContainer,'+
+			' .embeddedServiceSidebar.layout-float .dockableContainer '+
+			'{z-index: 100002 !important;}' +
+
+			'.embeddedServiceLiveAgentStateChatItem .nameAndTimeContent {'+
+			'color: #7E7E7E !important;}'+
+
+			'.embeddedServiceLiveAgentStateChatInputFooter.chasitorInputWrapper {'+
+			'background-color: #f5f6f7 !important;}'+
+
+			'.embeddedServiceLiveAgentStateChatPlaintextMessageDefaultUI.agent.plaintextContent{'+
+				'background: #f0f0f0 !important;}';
 
             style = document.createElement('style');
             style.type = 'text/css';
@@ -62,9 +94,16 @@ function initiateChatBot(snapInObject) {
             body = document.body || document.getElementsByTagName('body')[0],
             body.appendChild(style);
 
+            if ("languageCode" in snapInObject){
+				languageAfterMapping = languageMapping(snapInObject.languageCode, snapInObject.countryCode);
+			}
+			else{
+				languageAfterMapping = "en";
+			}
 
-            embedded_svc.settings.language = snapInObject.languageCode;
-            embedded_svc.settings.displayHelpButton = true;
+
+            embedded_svc.settings.language = languageAfterMapping;
+            embedded_svc.settings.displayHelpButton = false;
             embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 			embedded_svc.settings.entryFeature = 'LiveAgent';
 
@@ -116,22 +155,44 @@ function initiateChatBot(snapInObject) {
                         eswLiveAgentDevName: snapInObject.LiveAgentDevName,
                         isOfflineSupportEnabled: false
                 });
+
+                eleExist('.helpButtonEnabled #helpButtonSpan > .message', chatClick);
         };
         if (!window.embedded_svc) {
             var s = document.createElement('script');
             s.setAttribute('src', snapInObject.snapInJs);
             s.onload = function () {
                 initESW(null);
-                console.log('window.embedded_svc');
             };
             document.body.appendChild(s);
         } else {
-            console.log('window.embedded_svc.else');
-            initESW(snapInObject.serviceForceURL);
-            
+            initESW(snapInObject.serviceForceURL);       
         }
     }
     catch (e) {
         console.log("Error in: " + e);
     }
+}
+
+function chatClick(eleSelector, findingEle) {
+    try {
+        if (document.querySelector(eleSelector)) {
+            document.querySelector(eleSelector).click();
+        }
+        clearInterval(findingEle);
+    } catch (e) {
+        console.log("Error in:" + e);
+    }
+}
+
+function eleExist(eleSelector, callbackFunc) {
+    var findingEle = setInterval(function () {
+        if (document.querySelector(eleSelector)) {
+            try {
+                callbackFunc(eleSelector, findingEle);
+            } catch (e) {
+                console.log('error in ' + callbackFunc + ' function: ' + e);
+            }
+        }
+    }, 1000);
 }
