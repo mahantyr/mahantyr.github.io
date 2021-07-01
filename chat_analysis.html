@@ -110,16 +110,7 @@
             var selectedLanguageDropdown = lang.options[lang.selectedIndex].value;
             var selectedCountryDropdown = country.options[country.selectedIndex].value;
 			console.log('Selected',selectedCountryDropdown,' ',selectedLanguageDropdown);
-			/*var snapInObject = {
-				firstName:"",
-				lastName:"",
-				emailAddress:"",
-				languageCode:selectedLanguageDropdown,
-				seletionType:"",
-				channel:"",
-				countryCode:selectedCountryDropdown,
-				origin:"sales"
-			};*/
+			
 			var snapInObject = {
 				name:"",
 				emailAddress:"",
@@ -128,8 +119,10 @@
 			};
 			console.log('Inside startChat');
 			
-			await loadScript('https://sit1-dellicm-dell-na174.cs34.force.com/liveAgentSetupFlow/resource/DellOutletEmbeddedsvc/DellOutletEmbeddedsvc/DellOutletEmbeddedsvc.js');
+			//await loadScript('https://sit1-dellicm-dell-na174.cs34.force.com/liveAgentSetupFlow/resource/DellOutletEmbeddedsvc/DellOutletEmbeddedsvc/DellOutletEmbeddedsvc.js');
 			//await loadScript('https://sit1-dellicm-dell-na174.cs34.force.com/liveAgentSetupFlow/resource/DellSalesEmbeddedsvc/DellSalesEmbeddedsvc/DellSalesEmbeddedsvc.js');
+			await loadScript('https://dellicm-dell-na174.secure.force.com/liveAgentSetupFlow/resource/DellSalesEmbeddedsvc/DellSalesEmbeddedsvc/DellSalesEmbeddedsvc.js');
+			//await loadScript('https://dellicm-dell-na174.secure.force.com/liveAgentSetupFlow/resource/DellOutletEmbeddedsvc/DellOutletEmbeddedsvc/DellOutletEmbeddedsvc.js');
 			triggerSnapin(snapInObject);
 			
 		}
