@@ -21,7 +21,7 @@ var chatBotObject = {
                 // serviceForceURL:'https://service.force.com',
                 // snapInJs:'https://dcsf--sit1.my.salesforce.com/embeddedservice/5.0/esw.min.js',
                 // componentName:'DELL_CONNECT_DEFAULT',
-                // origin: "sales",
+                origin: "sales",
                 channel: "",
                 seletionType: ""
 };
