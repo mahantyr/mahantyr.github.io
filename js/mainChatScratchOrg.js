@@ -2,7 +2,7 @@ var chatBotObject = {
                 chatBotInitURL:'https://efficiency-flow-75172-dev-ed.cs69.my.salesforce.com',
                 chatBotPublicSites:'https://sandbox-scratch12-developer-edition.cs69.force.com/liveAgentSetupFlow',
                 organizationId:'00D2D000000E7aZ',
-                baseLiveAgentContentURL:'https://c.la2-c1cs-ph2.salesforceliveagent.com/content',
+                baseLiveAgentContentURL:'https://c.la4-c1cs-phx.salesforceliveagent.com/content',
                 deploymentId:'5722D00000005yK',
                 buttonId :'5732D000000074h',
                 baseLiveAgentURL:'https://d.la4-c1cs-phx.salesforceliveagent.com/chat',
