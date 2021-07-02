@@ -1,27 +1,27 @@
 var chatBotObject = {
-                // chatBotInitURL:'https://efficiency-flow-75172-dev-ed.cs69.my.salesforce.com',
-                // chatBotPublicSites:'https://sandbox-scratch12-developer-edition.cs69.force.com/liveAgentSetupFlow',
-                // organizationId:'00D2D000000E7aZ',
-                // baseLiveAgentContentURL:'https://c.la2-c1cs-ph2.salesforceliveagent.com/content',
-                // deploymentId:'5722D00000005yK',
-                // buttonId :'5732D000000074h',
-                // baseLiveAgentURL:'https://d.la4-c1cs-phx.salesforceliveagent.com/chat',
-                // eswLiveAgentDevName:'EmbeddedServiceLiveAgent_Parent04I2D000000CakIUAS_17a514709f7',
-                // serviceForceURL:'https://service.force.com',
-                // snapInJs:'https://efficiency-flow-75172-dev-ed.cs69.my.salesforce.com/embeddedservice/5.0/esw.min.js',
-                // componentName:'DELL_CONNECT_DEFAULT',
-                chatBotInitURL:'https://dcsf--sit1.my.salesforce.com',
-                chatBotPublicSites:'https://sit1-dellicm-dell-na174.cs34.force.com/liveAgentSetupFlow',
-                organizationId:'00D2f0000008esE',
-                baseLiveAgentContentURL:'https://c.la3-c1cs-ph2.salesforceliveagent.com/content',
-                deploymentId:'5722f0000004Czy',
-                buttonId :'5732f0000004DDg',
-                baseLiveAgentURL:'https://d.la3-c1cs-ph2.salesforceliveagent.com/chat',
-                eswLiveAgentDevName:'EmbeddedServiceLiveAgent_Parent04I2f00000000AGEAY_179601c8497',
+                chatBotInitURL:'https://efficiency-flow-75172-dev-ed.cs69.my.salesforce.com',
+                chatBotPublicSites:'https://sandbox-scratch12-developer-edition.cs69.force.com/liveAgentSetupFlow',
+                organizationId:'00D2D000000E7aZ',
+                baseLiveAgentContentURL:'https://c.la2-c1cs-ph2.salesforceliveagent.com/content',
+                deploymentId:'5722D00000005yK',
+                buttonId :'5732D000000074h',
+                baseLiveAgentURL:'https://d.la4-c1cs-phx.salesforceliveagent.com/chat',
+                eswLiveAgentDevName:'EmbeddedServiceLiveAgent_Parent04I2D000000CakIUAS_17a514709f7',
                 serviceForceURL:'https://service.force.com',
-                snapInJs:'https://dcsf--sit1.my.salesforce.com/embeddedservice/5.0/esw.min.js',
+                snapInJs:'https://efficiency-flow-75172-dev-ed.cs69.my.salesforce.com/embeddedservice/5.0/esw.min.js',
                 componentName:'DELL_CONNECT_DEFAULT',
-                origin: "sales",
+                // chatBotInitURL:'https://dcsf--sit1.my.salesforce.com',
+                // chatBotPublicSites:'https://sit1-dellicm-dell-na174.cs34.force.com/liveAgentSetupFlow',
+                // organizationId:'00D2f0000008esE',
+                // baseLiveAgentContentURL:'https://c.la3-c1cs-ph2.salesforceliveagent.com/content',
+                // deploymentId:'5722f0000004Czy',
+                // buttonId :'5732f0000004DDg',
+                // baseLiveAgentURL:'https://d.la3-c1cs-ph2.salesforceliveagent.com/chat',
+                // eswLiveAgentDevName:'EmbeddedServiceLiveAgent_Parent04I2f00000000AGEAY_179601c8497',
+                // serviceForceURL:'https://service.force.com',
+                // snapInJs:'https://dcsf--sit1.my.salesforce.com/embeddedservice/5.0/esw.min.js',
+                // componentName:'DELL_CONNECT_DEFAULT',
+                // origin: "sales",
                 channel: "",
                 seletionType: ""
 };
@@ -249,6 +249,13 @@ function eleExist(eleSelector, callbackFunc) {
 function clickStartChatBot(eleSelector, findingEle) {
     document.querySelector(eleSelector).click();
     clearInterval(findingEle);
+}
+
+function saveGlobalSnapinObjToSession(snapInObject) {
+    if (snapInObject) {
+        snapInObjectGlobal = JSON.stringify(snapInObject);
+        sessionStorage.setItem("snapInObjectSession", snapInObjectGlobal);
+    }
 }
 
 // eleExist(".embeddedServiceHelpButton .helpButton .helpButtonEnabled", clickStartChatBot);
